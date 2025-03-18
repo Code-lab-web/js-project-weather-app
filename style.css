@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2family=Roboto:wgt100;400;500&display=swap');
+body{
+  font-family: 'Roboto' , sans-serif;
+  .Wheatherapp {
+    display:flex;
+    width: 1600px;
+    flex-wrap: wrap;
+  }
+
+  .Wheatherapp {
+    padding: 20px;
+    width: 320px;
+  }
+}

@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My weather app</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<p>Count numbers: <output id="result"></output></p>
-<button onclick="startWorker()">Start Worker</button>
-<button onclick="stopWorker()">Stop Worker</button>
+  <body id="body">
+    <section>
+      <div class="todays-numbers">
+        <p>
+          <span id="shortDescription"></span> | <span id="temperature"></span>
+        </p>
+        <p id="sunrise"></p>
+        <p id="sunset"></p>
+      </div>
+      <div class="todays-description">
+        <img id="icon" />
+        <h2 id="description"></h2>
+      </div>
+    </section>
 
-<script>
-var w;
+    <section id="forecast" class="forecast"></section>
+    <footer>
+      <input
+        id="chosenCity"
+        type="text"
+        placeholder="Type a city..."
+        onsubmit="changeCity()"
+      />
+      <button id="citySearchButton">Search</button>
+      <p class="error" id="error"></p>
+      <p>Created by: Technigo Education Team</p>
+    </footer>
 
-function startWorker() {
-  if (typeof(Worker) !== "undefined") {
-    if (typeof(w) == "undefined") {
-      w = new Worker("demo_workers.js");
-    }
-    w.onmessage = function(event) {
-      document.getElementById("result").innerHTML = event.data;
-    };
-  } else {
-    document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
-  }
-}
-
-function stopWorker() {
-  w.terminate();
-  w = undefined;
-}
-</script>
-
-</body>
+    <script type="text/javascript" src="./weather.js"></script>
+    <script src="rightClick.js"></script>
+  </body>
 </html>

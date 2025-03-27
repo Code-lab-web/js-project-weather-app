@@ -1,0 +1,136 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cloudy {
+    background: #F4F7F8;
+    color: #F47775;
+  }
+  
+  .sunny {
+    background: #F7E9B9;
+    color: #2A5510;
+  }
+  
+  .rainy {
+    background: #A3DEF7;
+    color: #164A68;
+  }
+  
+  .unknown {
+    background: #dbf6e9;
+    color: #31326f;
+  }
+  
+  .todays-numbers {
+    margin-bottom: 30px;
+  }
+  
+  p {
+    font-size: 18px;
+    margin: 2px;
+  }
+  
+  .todays-description h2 {
+    font-size: 32px;
+    max-width: 400px;
+  }
+  
+  .todays-description img {
+    height: 70px;
+  }
+  
+  .forecast {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .forecast div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed;
+  }
+  
+  footer {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  input {
+    background: #F4F7F8;
+    height: 20px;
+    width: 200px;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 30px 0;
+  }
+  
+  .cloudy input, .cloudy input::placeholder {
+    color: #F47775;
+  }
+  
+  .rainy input, .rainy input::placeholder {
+    color: #164A68;
+  }
+  
+  .sunny input, .sunny input::placeholder {
+    color:  #2A5510;
+    border-radius: 4px;
+  }
+  
+  button {
+    color: white;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .cloudy button {
+    background: #F47775;
+  }
+  
+  .rainy button {
+    background: #164A68;
+  }
+  
+  .sunny button {
+    background:  #2A5510;
+    border-radius: 4px;
+  }
+  
+  .error {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 668px) {
+    .todays-numbers p {
+      font-size: 20px;
+    }
+  
+    .todays-description img {
+      width: 150px;
+    }
+  
+    .todays-description h2 {
+      font-size: 38px;
+      max-width: 500px;
+    }
+  
+    .forecast {
+      max-width: 500px;
+    }
+  
+    footer {
+      width: 100%;
+      max-width: 500px;
+    }
+  }
+  

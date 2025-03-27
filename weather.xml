@@ -1,0 +1,809 @@
+
+http://api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={http://api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}}
+[
+   {
+      "name":"London",
+      "local_names":{
+         "ms":"London",
+         "gu":"લંડન",
+         "is":"London",
+         "wa":"Londe",
+         "mg":"Lôndôna",
+         "gl":"Londres",
+         "om":"Landan",
+         "ku":"London",
+         "tw":"London",
+         "mk":"Лондон",
+         "ee":"London",
+         "fj":"Lodoni",
+         "gd":"Lunnainn",
+         "ky":"Лондон",
+         "yo":"Lọndọnu",
+         "zu":"ILondon",
+         "bg":"Лондон",
+         "tk":"London",
+         "co":"Londra",
+         "sh":"London",
+         "de":"London",
+         "kl":"London",
+         "bi":"London",
+         "km":"ឡុងដ៍",
+         "lt":"Londonas",
+         "fi":"Lontoo",
+         "fy":"Londen",
+         "ba":"Лондон",
+         "sc":"Londra",
+         "feature_name":"London",
+         "ja":"ロンドン",
+         "am":"ለንደን",
+         "sk":"Londýn",
+         "mr":"लंडन",
+         "es":"Londres",
+         "sq":"Londra",
+         "te":"లండన్",
+         "br":"Londrez",
+         "uz":"London",
+         "da":"London",
+         "sw":"London",
+         "fa":"لندن",
+         "sr":"Лондон",
+         "cu":"Лондонъ",
+         "ln":"Lóndɛlɛ",
+         "na":"London",
+         "wo":"Londar",
+         "ig":"London",
+         "to":"Lonitoni",
+         "ta":"இலண்டன்",
+         "mt":"Londra",
+         "ar":"لندن",
+         "su":"London",
+         "ab":"Лондон",
+         "ps":"لندن",
+         "bm":"London",
+         "mi":"Rānana",
+         "kn":"ಲಂಡನ್",
+         "kv":"Лондон",
+         "os":"Лондон",
+         "bn":"লন্ডন",
+         "li":"Londe",
+         "vi":"Luân Đôn",
+         "zh":"伦敦",
+         "eo":"Londono",
+         "ha":"Landan",
+         "tt":"Лондон",
+         "lb":"London",
+         "ce":"Лондон",
+         "hu":"London",
+         "it":"Londra",
+         "tl":"Londres",
+         "pl":"Londyn",
+         "sm":"Lonetona",
+         "en":"London",
+         "vo":"London",
+         "el":"Λονδίνο",
+         "sn":"London",
+         "fr":"Londres",
+         "cs":"Londýn",
+         "io":"London",
+         "hi":"लंदन",
+         "et":"London",
+         "pa":"ਲੰਡਨ",
+         "av":"Лондон",
+         "ko":"런던",
+         "bh":"लंदन",
+         "yi":"לאנדאן",
+         "sa":"लन्डन्",
+         "sl":"London",
+         "hr":"London",
+         "si":"ලන්ඩන්",
+         "so":"London",
+         "gn":"Lóndyre",
+         "ay":"London",
+         "se":"London",
+         "sd":"لنڊن",
+         "af":"Londen",
+         "ga":"Londain",
+         "or":"ଲଣ୍ଡନ",
+         "ia":"London",
+         "ie":"London",
+         "ug":"لوندۇن",
+         "nl":"Londen",
+         "gv":"Lunnin",
+         "qu":"London",
+         "be":"Лондан",
+         "an":"Londres",
+         "fo":"London",
+         "hy":"Լոնդոն",
+         "nv":"Tooh Dineʼé Bikin Haalʼá",
+         "bo":"ལོན་ཊོན།",
+         "ascii":"London",
+         "id":"London",
+         "lv":"Londona",
+         "ca":"Londres",
+         "no":"London",
+         "nn":"London",
+         "ml":"ലണ്ടൻ",
+         "my":"လန်ဒန်မြို့",
+         "ne":"लन्डन",
+         "he":"לונדון",
+         "cy":"Llundain",
+         "lo":"ລອນດອນ",
+         "jv":"London",
+         "sv":"London",
+         "mn":"Лондон",
+         "tg":"Лондон",
+         "kw":"Loundres",
+         "cv":"Лондон",
+         "az":"London",
+         "oc":"Londres",
+         "th":"ลอนดอน",
+         "ru":"Лондон",
+         "ny":"London",
+         "bs":"London",
+         "st":"London",
+         "ro":"Londra",
+         "rm":"Londra",
+         "ff":"London",
+         "kk":"Лондон",
+         "uk":"Лондон",
+         "pt":"Londres",
+         "tr":"Londra",
+         "eu":"Londres",
+         "ht":"Lonn",
+         "ka":"ლონდონი",
+         "ur":"علاقہ لندن"
+      },
+      "lat":51.5073219,
+      "lon":-0.1276474,
+      "country":"GB",
+      "state":"England"
+   },
+   {
+      "name":"City of London",
+      "local_names":{
+         "es":"City de Londres",
+         "ru":"Сити",
+         "ur":"لندن شہر",
+         "zh":"倫敦市",
+         "en":"City of London",
+         "pt":"Cidade de Londres",
+         "fr":"Cité de Londres",
+         "uk":"Лондонське Сіті",
+         "he":"הסיטי של לונדון",
+         "hi":"सिटी ऑफ़ लंदन",
+         "ko":"시티 오브 런던",
+         "lt":"Londono Sitis"
+      },
+      "lat":51.5156177,
+      "lon":-0.0919983,
+      "country":"GB",
+      "state":"England"
+   },
+   {
+      "name":"London",
+      "local_names":{
+         "el":"Λόντον",
+         "fr":"London",
+         "oj":"Baketigweyaang",
+         "en":"London",
+         "bn":"লন্ডন",
+         "be":"Лондан",
+         "ko":"런던",
+         "he":"לונדון",
+         "ru":"Лондон",
+         "lt":"Londonas",
+         "hy":"Լոնտոն",
+         "ga":"Londain",
+         "ja":"ロンドン",
+         "yi":"לאנדאן",
+         "cr":"ᓬᐊᐣᑕᐣ",
+         "iu":"ᓚᓐᑕᓐ",
+         "ar":"لندن",
+         "lv":"Landona",
+         "fa":"لندن",
+         "ug":"لوندۇن",
+         "th":"ลอนดอน",
+         "ka":"ლონდონი"
+      },
+      "lat":42.9832406,
+      "lon":-81.243372,
+      "country":"CA",
+      "state":"Ontario"
+   },
+   {
+      "name":"Chelsea",
+      "local_names":{
+         "id":"Chelsea, London",
+         "uk":"Челсі",
+         "hi":"चेल्सी, लंदन",
+         "ga":"Chelsea",
+         "es":"Chelsea",
+         "de":"Chelsea",
+         "af":"Chelsea, Londen",
+         "vi":"Chelsea, Luân Đôn",
+         "pl":"Chelsea",
+         "pt":"Chelsea",
+         "da":"Chelsea",
+         "ko":"첼시",
+         "sv":"Chelsea, London",
+         "nl":"Chelsea",
+         "az":"Çelsi",
+         "it":"Chelsea",
+         "hu":"Chelsea",
+         "no":"Chelsea",
+         "fr":"Chelsea",
+         "he":"צ'לסי",
+         "eu":"Chelsea",
+         "ru":"Челси",
+         "ar":"تشيلسي",
+         "en":"Chelsea",
+         "el":"Τσέλσι",
+         "tr":"Chelsea, Londra",
+         "zh":"車路士",
+         "sh":"Chelsea, London",
+         "ja":"チェルシー",
+         "ur":"چیلسی، لندن",
+         "sk":"Chelsea",
+         "fa":"چلسی",
+         "et":"Chelsea"
+      },
+      "lat":51.4875167,
+      "lon":-0.1687007,
+      "country":"GB",
+      "state":"England"
+   },
+   {
+      "name":"London",
+      "lat":37.1289771,
+      "lon":-84.0832646,
+      "country":"US",
+      "state":"Kentucky"
+   }
+   [
+  {
+    "name": "City of London",
+    "local_names": {
+      "ar": "مدينة لندن",
+      "ascii": "City of London",
+      "bg": "Сити",
+      "ca": "La City",
+      "de": "London City",
+      "el": "Σίτι του Λονδίνου",
+      "en": "City of London",
+      "fa": "سیتی لندن",
+      "feature_name": "City of London",
+      "fi": "Lontoon City",
+      "fr": "Cité de Londres",
+      "gl": "Cidade de Londres",
+      "he": "הסיטי של לונדון",
+      "hi": "सिटी ऑफ़ लंदन",
+      "id": "Kota London",
+      "it": "Londra",
+      "ja": "シティ・オブ・ロンドン",
+      "la": "Civitas Londinium",
+      "lt": "Londono Sitis",
+      "pt": "Cidade de Londres",
+      "ru": "Сити",
+      "sr": "Сити",
+      "th": "นครลอนดอน",
+      "tr": "Londra Şehri",
+      "vi": "Thành phố Luân Đôn",
+      "zu": "Idolobha weLondon"
+    },
+    "lat": 51.5128,
+    "lon": -0.0918,
+    "country": "GB"
+  },
+  {
+    "name": "London",
+    "local_names": {
+      "af": "Londen",
+      "ar": "لندن",
+      "ascii": "London",
+      "az": "London",
+      "bg": "Лондон",
+      "ca": "Londres",
+      "da": "London",
+      "de": "London",
+      "el": "Λονδίνο",
+      "en": "London",
+      "eu": "Londres",
+      "fa": "لندن",
+      "feature_name": "London",
+      "fi": "Lontoo",
+      "fr": "Londres",
+      "gl": "Londres",
+      "he": "לונדון",
+      "hi": "लंदन",
+      "hr": "London",
+      "hu": "London",
+      "id": "London",
+      "it": "Londra",
+      "ja": "ロンドン",
+      "la": "Londinium",
+      "lt": "Londonas",
+      "mk": "Лондон",
+      "nl": "Londen",
+      "no": "London",
+      "pl": "Londyn",
+      "pt": "Londres",
+      "ro": "Londra",
+      "ru": "Лондон",
+      "sk": "Londýn",
+      "sl": "London",
+      "sr": "Лондон",
+      "th": "ลอนดอน",
+      "tr": "Londra",
+      "vi": "Luân Đôn",
+      "zu": "ILondon"
+    },
+    "lat": 51.5085,
+    "lon": -0.1257,
+    "country": "GB"
+  },
+  {
+    "name": "Islington",
+    "local_names": {
+      "ascii": "Islington",
+      "az": "İslinqton",
+      "fa": "ایزلینتن",
+      "feature_name": "Islington",
+      "fr": "District londonien d'Islington",
+      "he": "איזלינגטון",
+      "ja": "イズリントン",
+      "ru": "Ислингтон"
+    },
+    "lat": 51.5362,
+    "lon": -0.103,
+    "country": "GB"
+  },
+  {
+    "name": "Lewisham",
+    "local_names": {
+      "ascii": "Lewisham",
+      "de": "London Borough of Lewisham",
+      "en": "Lewisham",
+      "feature_name": "Lewisham",
+      "fi": "Lewisham",
+      "fr": "Lewisham",
+      "hu": "Lewisham kerület",
+      "nl": "Lewisham",
+      "no": "Lewisham",
+      "ro": "Lewisham"
+    },
+    "lat": 51.4535,
+    "lon": -0.018,
+    "country": "GB"
+  },
+  {
+    "name": "Islington",
+    "local_names": {
+      "ascii": "Islington",
+      "de": "London Borough of Islington",
+      "en": "Islington",
+      "feature_name": "Islington",
+      "fr": "Islington",
+      "nl": "Islington",
+      "no": "Islington",
+      "ro": "Islington"
+    },
+    "lat": 51.547,
+    "lon": -0.1094,
+    "country": "GB"
+  }
+]
+                   
+                 
+
+<weatherdata>
+<location>
+<name>Zocca</name>
+<type/>
+<country>IT</country>
+<timezone>7200</timezone>
+<location altitude="0" latitude="44.34" longitude="10.99" geobase="geonames" geobaseid="3163858"/>
+</location>
+<credit/>
+<meta>
+<lastupdate/>
+<calctime>0</calctime>
+<nextupdate/>
+</meta>
+<sun rise="2022-08-30T04:36:27" set="2022-08-30T17:57:28"/>
+<forecast>
+<time from="2022-08-30T12:00:00" to="2022-08-30T15:00:00">
+<symbol number="500" name="light rain" var="10d"/>
+<precipitation probability="0.32" unit="3h" value="0.26" type="rain"/>
+<windDirection deg="349" code="N" name="North"/>
+<windSpeed mps="0.62" unit="m/s" name="Calm"/>
+<windGust gust="1.18" unit="m/s"/>
+<temperature unit="kelvin" value="298.08" min="297.87" max="298.08"/>
+<feels_like value="298.01" unit="kelvin"/>
+<pressure unit="hPa" value="1015"/>
+<humidity value="53" unit="%"/>
+<clouds value="overcast clouds" all="100" unit="%"/>
+<visibility value="10000"/>
+</time>
+<time from="2022-08-30T15:00:00" to="2022-08-30T18:00:00">
+<symbol number="500" name="light rain" var="10n"/>
+<precipitation probability="0.33" unit="3h" value="0.57" type="rain"/>
+<windDirection deg="157" code="SSE" name="South-southeast"/>
+<windSpeed mps="1.97" unit="m/s" name="Light breeze"/>
+<windGust gust="3.39" unit="m/s"/>
+<temperature unit="kelvin" value="296.33" min="292.84" max="296.33"/>
+<feels_like value="296.27" unit="kelvin"/>
+<pressure unit="hPa" value="1015"/>
+<humidity value="60" unit="%"/>
+<clouds value="overcast clouds" all="96" unit="%"/>
+<visibility value="10000"/>
+</time>
+<time from="2022-08-30T18:00:00" to="2022-08-30T21:00:00">
+<symbol number="500" name="light rain" var="10n"/>
+<precipitation probability="0.7" unit="3h" value="0.49" type="rain"/>
+<windDirection deg="210" code="SSW" name="South-southwest"/>
+<windSpeed mps="2.66" unit="m/s" name="Light breeze"/>
+<windGust gust="3.58" unit="m/s"/>
+<temperature unit="kelvin" value="292.9" min="290.31" max="292.9"/>
+<feels_like value="292.89" unit="kelvin"/>
+<pressure unit="hPa" value="1015"/>
+<humidity value="75" unit="%"/>
+<clouds value="broken clouds" all="68" unit="%"/>
+<visibility value="10000"/>
+</time>
+...
+<time from="2022-09-04T09:00:00" to="2022-09-04T12:00:00">
+<symbol number="804" name="overcast clouds" var="04d"/>
+<precipitation probability="0"/>
+<windDirection deg="17" code="NNE" name="North-northeast"/>
+<windSpeed mps="1.14" unit="m/s" name="Calm"/>
+<windGust gust="1.57" unit="m/s"/>
+<temperature unit="kelvin" value="294.93" min="294.93" max="294.93"/>
+<feels_like value="294.83" unit="kelvin"/>
+<pressure unit="hPa" value="1018"/>
+<humidity value="64" unit="%"/>
+<clouds value="overcast clouds" all="88" unit="%"/>
+<visibility value="10000"/>
+</time>
+</forecast>
+</weatherdata>
+{
+"main":{
+"temp":306.15, //current temperature
+"pressure":1013,
+"humidity":44,
+"temp_min":30.15, //min current temperature in the city
+"temp_max":306.15 //max current temperature in the city
+},
+                    
+        "dt":1406080800,
+"temp":{
+    "day":297.77,  //daily averaged temperature
+    "min":293.52, //daily min temperature
+    "max":297.77, //daily max temperature
+    "night":293.52, //night temperature
+    "eve":297.77, //evening temperature
+    "morn":297.77}, //morning temperature
+  
+}                    
+api.openweathermap.org/data/2.5/forecast?q={city name}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+
+api.openweathermap.org/data/2.5/forecast?q={city name},{country code}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+
+api.openweathermap.org/data/2.5/forecast?q={city name},{state code},{country code}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+api.openweathermap.org/data/2.5/forecast?q=München,DE&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+api.openweathermap.org/data/2.5/forecast?id={city ID}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+api.openweathermap.org/data/2.5/forecast?id=524901&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+api.openweathermap.org/data/2.5/forecast?zip={zip code},{country code}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+api.openweathermap.org/data/2.5/forecast?zip=94040,us&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+api.openweathermap.org/data/2.5/weather?q=London&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+
+
+                  
+{
+"cod": "200",
+"message": 0,
+"cnt": 40,
+"list": [
+{
+  "dt": 1647345600,
+  "main": {
+    "temp": 287.39,
+    "feels_like": 286.38,
+    "temp_min": 286.69,
+    "temp_max": 287.39,
+    "pressure": 1021,
+    "sea_level": 1021,
+    "grnd_level": 1018,
+    "humidity": 58,
+    "temp_kf": 0.7
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04d"
+    }
+  ],
+  "clouds": {
+    "all": 71
+  },
+  "wind": {
+    "speed": 3.08,
+    "deg": 128,
+    "gust": 4.3
+  },
+  "visibility": 10000,
+  "pop": 0,
+  "sys": {
+    "pod": "d"
+  },
+  "dt_txt": "2022-03-15 12:00:00"
+},
+{
+  "dt": 1647356400,
+  "main": {
+    "temp": 287.09,
+    "feels_like": 286.13,
+    "temp_min": 286.5,
+    "temp_max": 287.09,
+    "pressure": 1021,
+    "sea_level": 1021,
+    "grnd_level": 1016,
+    "humidity": 61,
+    "temp_kf": 0.59
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04d"
+    }
+  ],
+  "clouds": {
+    "all": 81
+  },
+  "wind": {
+    "speed": 3.28,
+    "deg": 168,
+    "gust": 3.96
+  },
+  "visibility": 10000,
+  "pop": 0,
+  "sys": {
+    "pod": "d"
+  },
+  "dt_txt": "2022-03-15 15:00:00"
+},
+{
+  "dt": 1647367200,
+  "main": {
+    "temp": 285.44,
+    "feels_like": 284.6,
+    "temp_min": 284.47,
+    "temp_max": 285.44,
+    "pressure": 1020,
+    "sea_level": 1020,
+    "grnd_level": 1016,
+    "humidity": 72,
+    "temp_kf": 0.97
+  },
+  "weather": [
+    {
+      "id": 804,
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "04d"
+    }
+  ],
+  "clouds": {
+    "all": 90
+  },
+  "wind": {
+    "speed": 2.7,
+    "deg": 183,
+    "gust": 5.59
+  },
+  "visibility": 10000,
+  "pop": 0,
+  "sys": {
+    "pod": "d"
+  },
+  "dt_txt": "2022-03-15 18:00:00"
+},
+.....
+    {
+  "dt": 1647766800,
+  "main": {
+    "temp": 282.42,
+    "feels_like": 280,
+    "temp_min": 282.42,
+    "temp_max": 282.42,
+    "pressure": 1036,
+    "sea_level": 1036,
+    "grnd_level": 1033,
+    "humidity": 60,
+    "temp_kf": 0
+  },
+  "weather": [
+    {
+      "id": 802,
+      "main": "Clouds",
+      "description": "scattered clouds",
+      "icon": "03d"
+    }
+  ],
+  "clouds": {
+    "all": 39
+  },
+  "wind": {
+    "speed": 4.58,
+    "deg": 83,
+    "gust": 8.45
+  },
+  "visibility": 10000,
+  "pop": 0,
+  "sys": {
+    "pod": "d"
+  },
+  "dt_txt": "2022-03-20 09:00:00"
+}
+],
+"city": {
+"id": 2643743,
+"name": "London",
+"coord": {
+  "lat": 51.5085,
+  "lon": -0.1257
+},
+"country": "GB",
+"population": 1000000,
+"timezone": 0,
+"sunrise": 1647324902,
+"sunset": 1647367441
+}
+}
+api.openweathermap.org/data/2.5/weather?q=London&mode=xml
+
+
+                  
+<weatherdata>
+<location>
+<name>London</name>
+<type/>
+<country>GB</country>
+<timezone>0</timezone>
+<location altitude="0" latitude="51.5085" longitude="-0.1257" geobase="geonames" geobaseid="2643743"/>
+</location>
+<credit/>
+<meta>
+<lastupdate/>
+<calctime>0</calctime>
+<nextupdate/>
+</meta>
+<sun rise="2022-03-15T06:15:02" set="2022-03-15T18:04:01"/>
+<forecast>
+<time from="2022-03-15T09:00:00" to="2022-03-15T12:00:00">
+<symbol number="803" name="broken clouds" var="04d"/>
+<precipitation probability="0"/>
+<windDirection deg="128" code="SE" name="SouthEast"/>
+<windSpeed mps="3.08" unit="m/s" name="Light breeze"/>
+<windGust gust="4.3" unit="m/s"/>
+<temperature unit="kelvin" value="287.52" min="286.69" max="287.52"/>
+<feels_like value="286.47" unit="kelvin"/>
+<pressure unit="hPa" value="1021"/>
+<humidity value="56" unit="%"/>
+<clouds value="broken clouds" all="71" unit="%"/>
+<visibility value="10000"/>
+</time>
+<time from="2022-03-15T12:00:00" to="2022-03-15T15:00:00">
+<symbol number="803" name="broken clouds" var="04d"/>
+<precipitation probability="0"/>
+<windDirection deg="168" code="SSE" name="South-southeast"/>
+<windSpeed mps="3.28" unit="m/s" name="Light breeze"/>
+<windGust gust="3.96" unit="m/s"/>
+<temperature unit="kelvin" value="287.18" min="286.5" max="287.18"/>
+<feels_like value="286.18" unit="kelvin"/>
+<pressure unit="hPa" value="1021"/>
+<humidity value="59" unit="%"/>
+<clouds value="broken clouds" all="81" unit="%"/>
+<visibility value="10000"/>
+</time>
+<time from="2022-03-15T15:00:00" to="2022-03-15T18:00:00">
+<symbol number="804" name="overcast clouds" var="04d"/>
+<precipitation probability="0"/>
+<windDirection deg="183" code="S" name="South"/>
+<windSpeed mps="2.7" unit="m/s" name="Light breeze"/>
+<windGust gust="5.59" unit="m/s"/>
+<temperature unit="kelvin" value="285.49" min="284.47" max="285.49"/>
+<feels_like value="284.66" unit="kelvin"/>
+<pressure unit="hPa" value="1020"/>
+<humidity value="72" unit="%"/>
+<clouds value="overcast clouds" all="90" unit="%"/>
+<visibility value="10000"/>
+</time>
+....
+<time from="2022-03-20T06:00:00" to="2022-03-20T09:00:00">
+<symbol number="802" name="scattered clouds" var="03d"/>
+<precipitation probability="0"/>
+<windDirection deg="83" code="E" name="East"/>
+<windSpeed mps="4.58" unit="m/s" name="Gentle Breeze"/>
+<windGust gust="8.45" unit="m/s"/>
+<temperature unit="kelvin" value="282.42" min="282.42" max="282.42"/>
+<feels_like value="280" unit="kelvin"/>
+<pressure unit="hPa" value="1036"/>
+<humidity value="60" unit="%"/>
+<clouds value="scattered clouds" all="39" unit="%"/>
+<visibility value="10000"/>
+</time>
+</forecast>
+</weatherdata>
+
+"main":{
+  "temp":306.15, //current temperature
+  "pressure":1013,
+  "humidity":44,
+  "temp_min":30.15, //min current temperature in the city
+  "temp_max":306.15 //max current temperature in the city
+},
+"dt":1406080800,
+"temp":{
+        "day":297.77,  //daily averaged temperature
+        "min":293.52, //daily min temperature
+        "max":297.77, //daily max temperature
+        "night":293.52, //night temperature
+        "eve":297.77, //evening temperature
+        "morn":297.77}, //morning temperature
+
+        api.openweathermap.org/data/2.5/forecast?q={city name}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+
+api.openweathermap.org/data/2.5/forecast?q={city name},{country code}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+
+api.openweathermap.org/data/2.5/forecast?q={city name},{state code},{country code}&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+
+
+
+}
+https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&cnt=3&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+}
+https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}&units=metric
+}
+https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}&units=imperial
+}
+http://api.openweathermap.org/data/2.5/forecast?id=524901&lang={lang}
+}
+http://api.openweathermap.org/data/2.5/forecast?id=524901&lang=zh_cn&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}                        
+}
+api.openweathermap.org/data/2.5/forecast?q=London,uk&callback=test&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid={548773e920254208b83a2e2bdadb8f0e}
+}
+  }

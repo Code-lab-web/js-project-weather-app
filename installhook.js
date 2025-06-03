@@ -1,8 +1,8 @@
 (() => {
     var e = {
         4659: (e, t, n) => {
-        }
-    }
+        } // Ensure this matches the corresponding opening brace
+    } // Ensure proper nesting and matching of braces
 })();
             "use strict";
             var r = n(8715),
@@ -43,6 +43,15 @@
                                 } 
                             } catch (e) {
                                 // handle error
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         } catch (e) {
                             // handle error

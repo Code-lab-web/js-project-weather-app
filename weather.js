@@ -1,6 +1,6 @@
 const API_KEY = "548773e920254208b83a2e2bdadb8f0e";
 const body = document.getElementById("body");
-https://pro.openweathermap.org/data/2.5/forecast/climate?lat={lat}&lon={lon}&appid={API key}
+https://pro.openweathermap.org/data/2.5/forecast/climate?lat={lat}&lon={lon}&appid={548773e}
 
 
 

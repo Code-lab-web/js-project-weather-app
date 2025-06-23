@@ -13,6 +13,49 @@
   "weatherApiUrlByCityLang": "http://api.openweathermap.org/data/2.5/forecast/climate?id=524901&lang={lang}",
   "weatherApiUrlByCityLangZhCn": "http://api.openweathermap.org/data/2.5/forecast/climate?id=524901&lang=zh_cn",
   "api.openweathermap.org/data/2.5/forecast/climate?q=London,uk&callback=test": "",
+http://test_url.test
+
+https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
+http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API key}
+http://api.openweathermap.org/data/2.5/air_pollution?lat=50&lon=50&appid={API key}
+http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat={lat}&lon={lon}&appid={API key}
+http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=50&lon=50&appid={API key}
+http://api.openweathermap.org/data/2.5/air_pollution/history?lat={lat}&lon={lon}&start={start}&end={end}&appid={API key}
+http://api.openweathermap.org/data/2.5/air_pollution/history?lat=508&lon=50&start=1606223802&end=1606482999&appid={API key}
+https://api.openweathermap.org/data/2.5/fwi?lat={lat}&lon={lon}&appid={API key}
+https://api.openweathermap.org/data/2.5/fwi?lat=24&lon=-103&appid={API key}
+https://api.openweathermap.org/data/2.5/fwi/forecast?lat={lat}&lon={lon}&appid={API key}
+https://api.openweathermap.org/data/2.5/fwi/forecast?lat=35&lon=-102&appid={API key}
+https://maps.openweathermap.org/maps/2.0/fwi/{z}/{x}/{y}?appid={API key}&date={date}
+https://maps.openweathermap.org/maps/2.0/fwi/4/1/6?appid={API key}&date=1600780200
+http://maps.openweathermap.org/maps/2.0/relief/{z}/{x}/{y}
+http://maps.openweathermap.org/maps/2.0/relief/{z}/{x}/{y}?appid={API key}
+http://maps.openweathermap.org/maps/2.0/relief/{z}/{x}/{y}?palette=0:FF0000;1000:00FF00;3000:0000FF&appid={API key}
+http://maps.openweathermap.org/maps/2.0/relief/{z}/{x}/{y}?appid={API key}
+http://maps.openweathermap.org/maps/2.0/relief/{z}/{x}/{y}?mix_w=0&appid={API key}
+http://maps.openweathermap.org/maps/2.0/relief/{z}/{x}/{y}?mix_w=1&appid={API key}
+http://maps.openweathermap.org/maps/2.0/relief/{z}/{x}/{y}?sun_az=180&sun_el=135&
+opacity=1&appid={API key}
+http://maps.openweathermap.org/maps/2.0/relief/{z}/{x}/{y}?sun_az=0&sun_el=45&
+opacity=1&appid={API key}
+https://maps.openweathermap.org/maps/2.0/radar/forecast/{z}/{x}/{y}?appid={API key}&tm={date}
+https://maps.openweathermap.org/maps/2.0/radar/forecast/6/13/24?&appid={API key}&tm=1600781400
+https://maps.openweathermap.org/maps/2.0/radar/forecast/7/4/2?&appid={API key}&tm=1703235600
+https://maps.openweathermap.org/maps/2.0/radar/forecast/7/4/2?&appid={API key}&tm=1703241000
+https://maps.openweathermap.org/maps/2.0/weather/1h/{op}/{z}/{x}/{y}?appid={API key}
+https://maps.openweathermap.org/maps/2.0/weather/1h/TA2/4/1/6?appid={API key}
+https://maps.openweathermap.org/maps/2.0/weather/1h/HRD0/4/1/6?date=1618898990&appid={API key}
+https://maps.openweathermap.org/maps/2.0/weather/1h/TA2/{z}/{x}/{y}?date=1618898990&opacity=0.9&fill_bound=true&palette=0:FF0000;10:00FF00;20:0000FF&appid={API key}
+https://maps.openweathermap.org/maps/2.0/weather/1h/TA2/{z}/{x}/{y}?appid={API key}
+ttps://maps.openweathermap.org/maps/2.0/weather/1h/TA2/{z}/{x}/{y}?appid={API key}&fill_bound=true&opacity=0.6&palette=-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:23dddd;10:c2ff28;20:fff028;25:ffc228;30:fc8014
+https://maps.openweathermap.org/maps/2.0/weather/1h/PARAIN/{z}/{x}/{y}?date=1618898990&appid={API key}
+https://maps.openweathermap.org/maps/2.0/weather/1h/APM/{z}/{x}/{y}?date=1618898990&appid={API key}
+https://maps.openweathermap.org/maps/2.0/weather/1h/WNDUV/{z}/{x}/{y}?date=16188989909&appid={API key}
+https://maps.openweathermap.org/maps/2.0/weather/1h/WNDUV/{z}/{x}/{y}?date=1618898990&use_norm=true&arrow_step=16&appid={API key}
 
   "response": {
     "cod": "200",
@@ -63,6 +106,1113 @@
     ]
   }
 }
- 
-                     
-                  
+
+{
+   "alert": {
+         "id": "2.49.0.0.428.0.LV.201201000201.46453_0",
+         "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+               [
+                     [
+                        -79.322,
+                        43.1293
+                     ],
+                     [
+                        -79.7776,
+                        43.1723
+                     ],
+                     [
+                        -79.322,
+                        43.1293
+                     ]
+               ]
+            ]
+         }
+   },
+   "msg_type": "warning",
+   "categories": [
+         "Met"
+   ],
+   "urgency": "Future",
+   "severity": "Moderate",
+   "certainty": "Likely",
+   "start": 1606896000,
+   "end": 1606982400,
+   "sender": "AIRNow Program, US Environmental Protection Agency",
+   "description": [
+         {
+            "language": "En",
+            "event": "Particle Pollution (2.5 microns) is forecast 
+            to reach 105 AQI - Unhealthy for Sensitive Groups on 
+            Wed 12/02/2020. Particle Pollution (2.5 microns) is 
+            forecast to reach 102 AQI - Unhealthy for 
+            Sensitive Groups on Thu 12/03/2020. ",
+            "headline": "Air Quality Alert for Natomas",
+            "description": "Particle Pollution (2.5 microns) 
+            is forecast to reach 105 AQI  - Unhealthy for Sensitive 
+            Groups on Wed 12/02/2020. Particle Pollution 
+            (2.5 microns) is forecast to reach 102 AQI - 
+            Unhealthy for Sensitive Groups on Thu 12/03/2020. ",
+            "instruction": "Active children and adults, and people 
+            with lung disease, such as asthma, should
+            reduce prolonged or heavy exertion outdoors"
+         }
+   ]
+}
+{
+   "alert": {
+         "id": "NOAA-NWS-ALERTS-MZGM1263E8498780.SmallCraftAdvisory.1263E856B9A0MZGM.BROMWWBRO.dc675d997f5213a477544834b8be8722_0",
+         "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+               [
+                  [
+                     [
+                        -96.087464179,
+                        26.578050484
+                     ],
+                     [
+                        -96.085647583,
+                        26.57072258
+                     ],
+                     [
+                        -96.083621979,
+                        26.562177658
+                     ],
+                     [
+                        -96.082635879,
+                        26.55844307
+                     ],
+                     [
+                        -96.080791474,
+                        26.551294327
+                     ],
+                     [
+                        -96.080055237,
+                        26.548616409
+                     ],
+                     [
+                        -96.0768013,
+                        26.536355972
+                     ],
+                     [
+                        -96.073354721,
+                        26.522771835
+                     ],
+                     [
+                        -96.070070267,
+                        26.50915718
+                     ],
+                     [
+                        -96.068614959,
+                        26.502691269
+                     ],
+                     [
+                        -96.066539764,
+                        26.493055343
+                     ],
+                     [
+                        -96.064674378,
+                        26.484033585
+                     ],
+                     [
+                        -96.062578201,
+                        26.473417282
+                     ],
+                     [
+                        -96.060411453,
+                        26.463632584
+                     ],
+                     [
+                        -96.058538436,
+                        26.454820633
+                     ],
+                     [
+                        -96.056734085,
+                        26.445997239
+                     ],
+                     [
+                        -96.056186676,
+                        26.443220139
+                     ],
+                     [
+                        -96.053762436,
+                        26.430116654
+                     ],
+                     [
+                        -96.051677703,
+                        26.418085098
+                     ],
+                     [
+                        -96.049282074,
+                        26.404554367
+                     ],
+                     [
+                        -96.046878815,
+                        26.389909744
+                     ],
+                     [
+                        -96.046155929,
+                        26.38498497
+                     ],
+                     [
+                        -96.042396545,
+                        26.374479293
+                     ],
+                     [
+                        -96.035120011,
+                        26.353532792
+                     ],
+                     [
+                        -96.028238297,
+                        26.332483292
+                     ],
+                     [
+                        -96.022151947,
+                        26.311246872
+                     ],
+                     [
+                        -96.016468048,
+                        26.289926529
+                     ],
+                     [
+                        -96.011184692,
+                        26.268526078
+                     ],
+                     [
+                        -96.006706238,
+                        26.246984481
+                     ],
+                     [
+                        -96.002634048,
+                        26.225385666
+                     ],
+                     [
+                        -95.998968125,
+                        26.203725815
+                     ],
+                     [
+                        -95.997766494,
+                        26.195436478
+                     ],
+                     [
+                        -95.995140076,
+                        26.174379349
+                     ],
+                     [
+                        -95.993175507,
+                        26.155935288
+                     ],
+                     [
+                        -95.991504669,
+                        26.137464524
+                     ],
+                     [
+                        -95.990282058,
+                        26.115594864
+                     ],
+                     [
+                        -95.989467621,
+                        26.09371376
+                     ],
+                     [
+                        -95.989063263,
+                        26.071821213
+                     ],
+                     [
+                        -95.989473343,
+                        26.049928665
+                     ],
+                     [
+                        -95.990291595,
+                        26.028047562
+                     ],
+                     [
+                        -95.991518021,
+                        26.006177903
+                     ],
+                     [
+                        -95.991877955,
+                        26.002326031
+                     ],
+                     [
+                        -95.993556976,
+                        25.984357834
+                     ],
+                     [
+                        -95.99600029,
+                        25.962568283
+                     ],
+                     [
+                        -95.99642671,
+                        25.959309737
+                     ],
+                     [
+                        -96.501509865,
+                        25.963276797
+                     ],
+                     [
+                        -96.590477128,
+                        25.963720082
+                     ],
+                     [
+                        -96.765168663,
+                        25.964367861
+                     ],
+                     [
+                        -96.764932632,
+                        25.97464943
+                     ],
+                     [
+                        -96.764972687,
+                        25.977422715
+                     ],
+                     [
+                        -96.763456344,
+                        25.982416153
+                     ],
+                     [
+                        -96.758001328,
+                        26.003778457
+                     ],
+                     [
+                        -96.754146576,
+                        26.025407791
+                     ],
+                     [
+                        -96.751909256,
+                        26.047212601
+                     ],
+                     [
+                        -96.751298905,
+                        26.069097519
+                     ],
+                     [
+                        -96.752321243,
+                        26.090970993
+                     ],
+                     [
+                        -96.754459382,
+                        26.10940361
+                     ],
+                     [
+                        -96.755105972,
+                        26.113637924
+                     ],
+                     [
+                        -96.759376526,
+                        26.135210037
+                     ],
+                     [
+                        -96.765247345,
+                        26.156488418
+                     ],
+                     [
+                        -96.772697448,
+                        26.177381516
+                     ],
+                     [
+                        -96.781696319,
+                        26.197805405
+                     ],
+                     [
+                        -96.792201996,
+                        26.217668533
+                     ],
+                     [
+                        -96.79268837,
+                        26.218446732
+                     ],
+                     [
+                        -96.795276642,
+                        26.239568711
+                     ],
+                     [
+                        -96.795593262,
+                        26.241510391
+                     ],
+                     [
+                        -96.796360016,
+                        26.246564865
+                     ],
+                     [
+                        -96.797924042,
+                        26.255437851
+                     ],
+                     [
+                        -96.799200057,
+                        26.264230729
+                     ],
+                     [
+                        -96.800275803,
+                        26.270502091
+                     ],
+                     [
+                        -96.800796509,
+                        26.273347854
+                     ],
+                     [
+                        -96.801525116,
+                        26.277193069
+                     ],
+                     [
+                        -96.801797867,
+                        26.279306412
+                     ],
+                     [
+                        -96.803100585,
+                        26.288293838
+                     ],
+                     [
+                        -96.803316117,
+                        26.289621353
+                     ],
+                     [
+                        -96.804729462,
+                        26.299470901
+                     ],
+                     [
+                        -96.807479859,
+                        26.314237595
+                     ],
+                     [
+                        -96.809848785,
+                        26.327173233
+                     ],
+                     [
+                        -96.81042099,
+                        26.329950333
+                     ],
+                     [
+                        -96.812376023,
+                        26.338747025
+                     ],
+                     [
+                        -96.813634872,
+                        26.343839645
+                     ],
+                     [
+                        -96.815059662,
+                        26.350320816
+                     ],
+                     [
+                        -96.816280365,
+                        26.356077194
+                     ],
+                     [
+                        -96.817558288,
+                        26.362470627
+                     ],
+                     [
+                        -96.819505692,
+                        26.371477127
+                     ],
+                     [
+                        -96.820425033,
+                        26.375413894
+                     ],
+                     [
+                        -96.823993682,
+                        26.388971329
+                     ],
+                     [
+                        -96.82544899,
+                        26.394060135
+                     ],
+                     [
+                        -96.826885223,
+                        26.399263382
+                     ],
+                     [
+                        -96.82774353,
+                        26.402441025
+                     ],
+                     [
+                        -96.828577042,
+                        26.405622482
+                     ],
+                     [
+                        -96.832330704,
+                        26.419351577
+                     ],
+                     [
+                        -96.832519532,
+                        26.420087814
+                     ],
+                     [
+                        -96.833189011,
+                        26.42291069
+                     ],
+                     [
+                        -96.834316253,
+                        26.427755356
+                     ],
+                     [
+                        -96.835884094,
+                        26.434026718
+                     ],
+                     [
+                        -96.836265564,
+                        26.435651779
+                     ],
+                     [
+                        -96.843618393,
+                        26.46247673
+                     ],
+                     [
+                        -96.84446907,
+                        26.465421677
+                     ],
+                     [
+                        -96.845005035,
+                        26.467565537
+                     ],
+                     [
+                        -96.849678039,
+                        26.484209061
+                     ],
+                     [
+                        -96.850107193,
+                        26.485601425
+                     ],
+                     [
+                        -96.851036072,
+                        26.489034653
+                     ],
+                     [
+                        -96.851259232,
+                        26.489938736
+                     ],
+                     [
+                        -96.856472015,
+                        26.508611679
+                     ],
+                     [
+                        -96.857965469,
+                        26.513872146
+                     ],
+                     [
+                        -96.858968735,
+                        26.51729393
+                     ],
+                     [
+                        -96.860980988,
+                        26.523862839
+                     ],
+                     [
+                        -96.861829757,
+                        26.526514053
+                     ],
+                     [
+                        -96.862491607,
+                        26.528749466
+                     ],
+                     [
+                        -96.864326477,
+                        26.534719467
+                     ],
+                     [
+                        -96.866165161,
+                        26.540365219
+                     ],
+                     [
+                        -96.868074417,
+                        26.546583176
+                     ],
+                     [
+                        -96.86967659,
+                        26.551523208
+                     ],
+                     [
+                        -96.871948242,
+                        26.558977127
+                     ],
+                     [
+                        -96.87336731,
+                        26.563314438
+                     ],
+                     [
+                        -96.874540329,
+                        26.567075729
+                     ],
+                     [
+                        -96.875873566,
+                        26.57123375
+                     ],
+                     [
+                        -96.877746582,
+                        26.57695198
+                     ],
+                     [
+                        -96.879312516,
+                        26.581567764
+                     ],
+                     [
+                        -96.881389618,
+                        26.587533951
+                     ],
+                     [
+                        -96.087464179,
+                        26.578050484
+                     ]
+                  ]
+               ]
+            ]
+         }
+   },
+   "msg_type": "warning",
+   "categories": [
+         "Met"
+   ],
+   "urgency": "Expected",
+   "severity": "Minor",
+   "certainty": "Likely",
+   "start": 1646769600,
+   "end": 1646805600,
+   "sender": "NWS Brownsville (Southern Texas)",
+   "description": [
+         {
+            "language": "",
+            "event": "Small Craft Advisory",
+            "headline": "Small Craft Advisory issued March 08 
+            at 1:52PM CST until March 09 at 12:00AM CST 
+            by NWS Brownsville",
+            "description": "...SMALL CRAFT ADVISORY IN EFFECT UNTIL 
+            MIDNIGHT CST TONIGHT...\n* WHAT...North winds around 
+            20 kt with gusts up to 30 kt.\n* 
+            WHERE...Offshore Gulf waters between
+            the mouth of the Rio\nGrande and Baffin Bay 
+            from 20 to 60 nm.\n* 
+            WHEN...Until midnight CST tonight.\n* 
+            IMPACTS...Conditions will be hazardous to small craft.",
+            "instruction": "Inexperienced mariners, especially 
+            those operating smaller\nvessels, should avoid 
+            navigating in hazardous conditions."
+         }
+   ]
+}
+                   
+  {
+   "alert": {
+         "id": "NOAA-NWS-ALERTS-OH1263E8498910.FloodWarning.1263E8578010OH.RLXFLWRLX.df2a761a484d17f037d8cdb8bb5c2698_0",
+         "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+               [
+                  [
+                     -81.81,
+                     39.1
+                  ],
+                  [
+                     -81.82,
+                     39.06
+                  ],
+                  [
+                     -81.92,
+                     39.06
+                  ],
+                  [
+                     -81.94,
+                     39.1
+                  ],
+                  [
+                     -81.93,
+                     39.12
+                  ],
+                  [
+                     -81.87,
+                     39.13
+                  ],
+                  [
+                     -81.84,
+                     39.09
+                  ],
+                  [
+                     -81.82,
+                     39.09
+                  ],
+                  [
+                     -81.81,
+                     39.1
+                  ]
+               ]
+            ]
+         }
+   },
+   "msg_type": "warning",
+   "categories": [
+         "Met"
+   ],
+   "urgency": "Expected",
+   "severity": "Moderate",
+   "certainty": "Likely",
+   "start": 1646739000,
+   "end": 1646824080,
+   "sender": "NWS Charleston (West Virginia)",
+   "description": [
+         {
+            "language": "",
+            "event": "Flood Warning",
+            "headline": "Flood Warning issued March 08 at 2:56PM
+            EST until March 09 at 6:08AM EST by NWS Charleston",
+            "description": "...FLOOD WARNING NOW IN EFFECT UNTIL
+            545 PM EST THIS AFTERNOON... WHAT...Flooding caused
+            by runoff from yesterday`s rain continues. 
+            WHERE...A portion of southeast Ohio, including 
+            the following county, Meigs. WHEN...Until 545 PM EST. 
+            IMPACTS...Flooding of the Shade River is occurring.  
+            ADDITIONAL DETAILS... At 255 PM EST, The automated 
+            gauge on the Shade River near Chester 
+            reported a reading of 18.32 feet and falling. 
+            At 17 feet, the Sugar Run Creek Bridge is flooded 
+            200 feet downstream from Oak Hill Road and the 
+            Shade River Bridge. 
+            Some locations that will experience flooding 
+            include...Chester.
+            http://www.weather.gov/safety/flood",
+            "instruction": "Turn around, don`t drown when 
+            encountering flooded roads. Most flood deaths
+            occur in vehicles. Report Severe Weather
+            to the National Weather Service by calling 
+            toll free, 800 401 9535, when you can do so safely."
+         }
+   ]
+}                                 
+                {
+  "coord": {
+    "lon": 10.99,
+    "lat": 44.34
+  },
+  "weather": [
+    {
+      "id": 501,
+      "main": "Rain",
+      "description": "moderate rain",
+      "icon": "10d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 298.48,
+    "feels_like": 298.74,
+    "temp_min": 297.56,
+    "temp_max": 300.05,
+    "pressure": 1015,
+    "humidity": 64,
+    "sea_level": 1015,
+    "grnd_level": 933
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 0.62,
+    "deg": 349,
+    "gust": 1.18
+  },
+  "rain": {
+    "1h": 3.16
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1661870592,
+  "sys": {
+    "type": 2,
+    "id": 2075663,
+    "country": "IT",
+    "sunrise": 1661834187,
+    "sunset": 1661882248
+  },
+  "timezone": 7200,
+  "id": 3163858,
+  "name": "Zocca",
+  "cod": 200
+}
+{
+   "coord": {
+      "lon": 7.367,
+      "lat": 45.133
+   },
+   "weather": [
+      {
+         "id": 501,
+         "main": "Rain",
+         "description": "moderate rain",
+         "icon": "10d"
+      }
+   ],
+   "base": "stations",
+   "main": {
+      "temp": 284.2,
+      "feels_like": 282.93,
+      "temp_min": 283.06,
+      "temp_max": 286.82,
+      "pressure": 1021,
+      "humidity": 60,
+      "sea_level": 1021,
+      "grnd_level": 910
+   },
+   "visibility": 10000,
+   "wind": {
+      "speed": 4.09,
+      "deg": 121,
+      "gust": 3.47
+   },
+   "rain": {
+      "1h": 2.73
+   },
+   "clouds": {
+      "all": 83
+   },
+   "dt": 1726660758,
+   "sys": {
+      "type": 1,
+      "id": 6736,
+      "country": "IT",
+      "sunrise": 1726636384,
+      "sunset": 1726680975
+   },
+   "timezone": 7200,
+   "id": 3165523,
+   "name": "Province of Turin",
+   "cod": 200
+}                    
+   {
+  "coord": [
+    50.0,
+    50.0
+  ],
+  "list": [
+    {
+      "dt": 1606147200,
+      "main": {
+        "aqi": 4.0
+      },
+      "components": {
+        "co": 203.609,
+        "no": 0.0,
+        "no2": 0.396,
+        "o3": 75.102,
+        "so2": 0.648,
+        "pm2_5": 23.253,
+        "pm10": 92.214,
+        "nh3": 0.117
+      }
+    }
+  ]
+}
+{
+  "coord": [
+    50.0,
+    50.0
+  ],
+  "list": [
+    {
+      "dt": 1605916800,
+      "main": {
+        "aqi": 1.0
+      },
+      "components": {
+        "co": 211.954,
+        "no": 0.0,
+        "no2": 0.217,
+        "o3": 72.956,
+        "so2": 0.514,
+        "pm2_5": 2.563,
+        "pm10": 5.757,
+        "nh3": 0.216
+      }
+    },
+    {
+      "dt": 1605920400,
+      "main": {
+        "aqi": 1.0
+      },
+      "components": {
+        "co": 211.954,
+        "no": 0.0,
+        "no2": 0.201,
+        "o3": 72.241,
+        "so2": 0.469,
+        "pm2_5": 2.662,
+        "pm10": 5.622,
+        "nh3": 0.224
+      }
+    },
+    {
+      "dt": 1605924000,
+      "main": {
+        "aqi": 1.0
+      },
+      "components": {
+        "co": 213.623,
+        "no": 0.0,
+        "no2": 0.185,
+        "o3": 71.526,
+        "so2": 0.443,
+        "pm2_5": 2.724,
+        "pm10": 5.51,
+        "nh3": 0.23
+      }
+    },
+    {
+      "dt": 1605927600,
+      "main": {
+        "aqi": 1.0
+      },
+      "components": {
+        "co": 213.623,
+        "no": 0.0,
+        "no2": 0.17,
+        "o3": 72.241,
+        "so2": 0.432,
+        "pm2_5": 2.812,
+        "pm10": 5.687,
+        "nh3": 0.234
+      }
+    },
+    .....
+    
+  {
+  "coord": [
+    50.0,
+    50.0
+  ],
+  "list": [
+    {
+      "main": {
+        "aqi": 2
+      },
+      "components": {
+        "co": 270.367,
+        "no": 5.867,
+        "no2": 43.184,
+        "o3": 4.783,
+        "so2": 14.544,
+        "pm2_5": 13.448,
+        "pm10": 15.524,
+        "nh3": 0.289
+      },
+      "dt": 1606482000
+    },
+    {
+      "main": {
+        "aqi": 2
+      },
+      "components": {
+        "co": 280.38,
+        "no": 8.605,
+        "no2": 42.155,
+        "o3": 2.459,
+        "so2": 14.901,
+        "pm2_5": 15.103,
+        "pm10": 17.249,
+        "nh3": 0.162
+      },
+      "dt": 1606478400
+    },
+    {
+      "main": {
+        "aqi": 2
+      },
+      "components": {
+        "co": 293.732,
+        "no": 13.523,
+        "no2": 41.47,
+        "o3": 1.173,
+        "so2": 15.14,
+        "pm2_5": 17.727,
+        "pm10": 19.929,
+        "nh3": 0.072
+      },
+      "dt": 1606474800
+    },
+    .....
+{
+  "coord":[
+    50,
+    50
+  ],
+  "list":[
+    {
+      "dt":1605182400,
+      "main":{
+        "aqi":1
+      },
+      "components":{
+        "co":201.94053649902344,
+        "no":0.01877197064459324,
+        "no2":0.7711350917816162,
+        "o3":68.66455078125,
+        "so2":0.6407499313354492,
+        "pm2_5":0.5,
+        "pm10":0.540438711643219,
+        "nh3":0.12369127571582794
+      }
+    }
+  ]
+}
+  {
+"lat":37.75,
+"lon":-122.37,
+"date_iso":"2017-06-26T12:00:00Z",
+"date":1498478400,
+"value":10.06
+}
+[
+      {
+          "lat":37.75,
+          "lon":-122.37,
+          "date_iso":"2017-06-27T12:00:00Z",
+          "date":1498564800,
+          "value":10.1
+      },
+      {
+          "lat":37.75,
+          "lon":-122.37,
+          "date_iso":"2017-06-28T12:00:00Z",
+          "date":1498651200,
+          "value":10.19
+      },
+      ...
+      {
+          "lat":37.75,
+          "lon":-122.37,
+          "date_iso":"2017-07-04T12:00:00Z",
+          "date":1499169600,
+          "value":10.05
+      }
+  ]
+  [
+    {
+        "lat":37.75,
+        "lon":-122.37,
+        "date_iso":"2017-06-22T12:00:00Z",
+        "date":1498132800,
+        "value":9.92
+    },
+    {
+        "lat":37.75,
+        "lon":-122.37,
+        "date_iso":"2017-06-23T12:00:00Z",
+        "date":1498219200,
+        "value":10.09
+    },
+    {
+        "lat":37.75,
+        "lon":-122.37,
+        "date_iso":"2017-06-24T12:00:00Z",
+        "date":1498305600,
+        "value":10.95
+    },
+    {
+        "lat":37.75,
+        "lon":-122.37,
+        "date_iso":"2017-06-25T12:00:00Z",
+        "date":1498392000,
+        "value":11.03
+    },
+    {
+        "lat":37.75,
+        "lon":-122.37,
+        "date_iso":"2017-06-26T12:00:00Z",
+        "date":1498478400,
+        "value":10.06
+    }
+]
+                       
+                     {
+  "lat": 38.75,
+  "lon": 40.25,
+  "date_iso": "2017-06-23T12:00:00Z",
+  "date": 1498219200,
+  "value": 10.16
+}
+  {
+  "coord": {
+     "lon":-103,
+     "lat": 24
+ },
+  "list": [
+    {
+     "main": {
+        "fwi":70.53
+     },
+     "danger_rating:{
+        "description:"Extreme",
+        "value": "5"
+    },
+    "dt": "1677142800",
+    }
+  ]
+}
+ {
+  "coord": {
+    "lon":-102,
+    "lat": 35
+  },
+  "list": [
+    {
+     "main": {
+        "fwi": 21.23
+      },
+      "danger_rating:{
+         "description:"Moderate",
+         "value": "2"
+      },
+     "dt": "1677142800"
+   },
+    {
+    "main": {
+       "fwi": 11.61
+     },
+     "danger_rating:{
+        "description:"Moderate",
+        "value": "2"
+     },
+     "dt": "1677229200"
+   },
+    {
+    "main": {
+       "fwi": 39.04
+     },
+     "danger_rating:{
+        "description:"Very high",
+        "value": "4"
+     },
+    "dt": "1677315600"
+   },
+    {
+    "main": {
+       "fwi":  23.76
+     },
+     "danger_rating:{
+        "description:"High",
+        "value": "3"
+     },
+     "dt": "1677402000"
+   },
+    {
+    "main": {
+       "fwi":  46.33
+     },
+     "danger_rating:{
+        "description:"Very high",
+        "value": "4"
+     },
+     "dt": "1677488400"
+   },
+    {
+    "main": {
+       "fwi":  61.57
+     },
+     "danger_rating:{
+        "description:"Extreme",
+        "value": "5"
+     },
+     "dt": "1677574800"
+    }
+  ]
+}
+                
+                                                                                     

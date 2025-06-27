@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "openlayers": "^3.17.1"
+  }
+}

@@ -6,8 +6,8 @@
   "start": "nodemon server.js -- exec babel-node"
   "test": "echo\"Error: no test specified\"&& exit I"
 },
-"author": ""{
-  "licence": "ISC"
+"author": "Johan Skarpsvärd"{
+  "licence": ""
   "dependencies": {
     "leaflet": "^1.9.4",
     "openlayers": "^3.17.1"

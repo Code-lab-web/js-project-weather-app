@@ -1,19 +1,19 @@
-"name": "weather-api",
+{
+"name": "specialgardengroup-weather-api",
 "version": "1.0.0",
 "description": "",
 "main": "server.js",
-"scripts": {
-  "start": "nodemon server.js -- exec babel-node"
-  "test": "jest"
+"scripts":{
+  "start": "nodemon server.js -- exec babel-node",
+  "test": "jest",
 },
-"author": "Code-lab-web"{
-  "licence": "ISC"
-  "dependencies": {
+"author": "Code-lab-web",
+  "licence": "ISC",
+  "dependencies",
     "leaflet": "^1.9.4",
-    "openlayers": "^3.17.1"
+    "openlayers": "^3.17.1",
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",
     "@babel/present-env":"^7.8.3",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
   }
-}

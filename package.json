@@ -6,7 +6,7 @@
   "start": "nodemon server.js -- exec babel-node"
   "test": "jest"
 },
-"author": "Johan Skarpsvärd"{
+"author": "Code-lab-web"{
   "licence": ""
   "dependencies": {
     "leaflet": "^1.9.4",

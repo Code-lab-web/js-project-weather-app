@@ -8,7 +8,7 @@
   "test": "jest"
 },
 "author": "Code-lab-web",
-  "licence": "ISC",
+  "license": "(ISC OR GPL-3.0)",
   "dependencies": {
     "leaflet": "^1.9.4",
     "openlayers": "^3.17.1",

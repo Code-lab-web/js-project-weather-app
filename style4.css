@@ -1,3 +1,4 @@
+@import "tailwindcss";
 import googlefonts from 'google-fonts';
 body {
     font-family: 'Montserrat', sans-serif;

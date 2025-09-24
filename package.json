@@ -36,6 +36,7 @@
   },
   "packageManager": "yarn@3.2.3+sha224.953c8233f7a92884eee2de69a1b92d1f2ec1655e66d08071ba9a02fa",
   "devDependencies": {
+    "@babel/preset-flow": "^7.27.1",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
     "@types/node": "^24.5.2",

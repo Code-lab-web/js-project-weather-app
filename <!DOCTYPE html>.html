@@ -12,30 +12,34 @@
   </head>
 
   <body id="body">
-    <section>
-      <div class="todays-numbers">
-        <p>
-          <span id="shortDescription"></span> | <span id="temperature"></span>
-        </p>
-        <p id="sunrise"></p>
-        <p id="sunset"></p>
-      </div>
-      <div class="todays-description">
-        <img id="icon" />
-        <h2 id="description"></h2>
-      </div>
-    </section>
+    <main>
+      <section>
+        <div class="todays-numbers">
+          <p>
+            <span id="shortDescription"></span> | <span id="temperature"></span>
+          </p>
+          <p id="sunrise"></p>
+          <p id="sunset"></p>
+        </div>
+        <div class="todays-description">
+          <img id="icon" alt="Weather icon" />
+          <h2 id="description"></h2>
+        </div>
+      </section>
 
-    <section id="forecast" class="forecast"></section>
+      <section id="forecast" class="forecast"></section>
+    </main>
     <footer>
+      <label for="chosenCity">City:</label>
       <input
         id="chosenCity"
         type="text"
         placeholder="Type a city..."
         onsubmit="changeCity()"
+        aria-label="City Name"
       />
-      <button id="citySearchButton">Search</button>
-      <p class="error" id="error"></p>
+      <button id="citySearchButton" aria-label="Search for city">Search</button>
+      <p class="error" id="error" aria-live="polite"></p>
       <p>Created by: Special Garden Group</p>
     </footer>
 

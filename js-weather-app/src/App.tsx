@@ -1,33 +1,57 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [city, setCity] = useState('');
+  const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const API_KEY = '548773e920254208b83a2e2bdadb8f0e'; // Replace with your API key
+
+  const fetchWeather = async () => {
+    if (!city) {
+      alert('Please enter a city');
+      return;
+    }
+    setLoading(true);
+    try {
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+      const data = await response.json();
+      if (data.cod === 200) {
+        setWeather(data);
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching weather data: ", error);
+      alert('Failed to fetch weather data.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>Weather App</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <input
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          placeholder="Enter city"
+        />
+        <button onClick={fetchWeather}>Get Weather</button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {loading && <p>Loading...</p>}
+      {weather && (
+        <div className="weather-info">
+          <h2>{weather.name}</h2>
+          <p>{weather.weather[0].main}</p>
+          <p>Temperature: {weather.main.temp}°C</p>
+          <p>Humidity: {weather.main.humidity}%</p>
+          <p>Wind Speed: {weather.wind.speed} m/s</p>
+        </div>
+      )}
     </>
   )
 }

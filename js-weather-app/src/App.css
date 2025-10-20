@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.weather-info {
+  margin-top: 2rem;
+  text-align: left;
+}

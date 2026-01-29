@@ -15,6 +15,7 @@
     pkgs.python312Packages.pip
     pkgs.busybox
     pkgs.nox
+    pkgs.python39
   ];
 
   # Sets environment variables in the workspace

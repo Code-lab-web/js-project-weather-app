@@ -43,7 +43,7 @@ const pickTodaysDescription = (todaysDescription) => {
   } else {
     icon.src = "./assets/d2-unknown.svg";
     body.classList.add("unknown");
-    description.innerHTML = `Be careful today in ${city}!`;
+    description.textContent = `Be careful today in ${city}!`;
   }
 };
 

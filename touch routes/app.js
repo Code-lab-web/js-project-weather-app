@@ -4,21 +4,20 @@ app.use('/', indexRouter);
 app.use('/', authRouter);
 var logger = require('morgan');
 var session = require('express-session');
-var session = require('express-session');
 var passport = require('passport');
 
 var SQLiteStore = require('connect-sqlite3')(session);
 app.use(express.static(path.join(__dirname, 'public')));
+
+var isProduction = process.env.NODE_ENV === 'production';
+
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
+  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' }),
+  cookie: {
+    secure: isProduction
+  }
 }));
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false,
-    store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
-  }));
-  app.use(passport.authenticate('session'));
+app.use(passport.authenticate('session'));

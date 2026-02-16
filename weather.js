@@ -26,11 +26,11 @@ const pickTodaysDescription = (todaysDescription) => {
   if (todaysDescription === "Clouds") {
     icon.src = "./assets/d2-cloud.svg";
     body.classList.add("cloudy");
-    description.innerHTML = `Light a fire and get cosy. ${city} is looking grey today.`;
+    description.textContent = `Light a fire and get cosy. ${city} is looking grey today.`;
   } else if (todaysDescription === "Clear") {
     icon.src = "./assets/d2-sun.svg";
     body.classList.add("sunny");
-    description.innerHTML = `Get your sunnies on. ${city} is looking rather great today.`;
+    description.textContent = `Get your sunnies on. ${city} is looking rather great today.`;
   } else if (
     todaysDescription === "Rain" ||
     todaysDescription === "Thunderstorm" ||
@@ -39,11 +39,11 @@ const pickTodaysDescription = (todaysDescription) => {
   ) {
     icon.src = "./assets/d2-rain.svg";
     body.classList.add("rainy");
-    description.innerHTML = `Don't forget your umbrella. It's wet in ${city} today.`;
+    description.textContent = `Don't forget your umbrella. It's wet in ${city} today.`;
   } else {
     icon.src = "./assets/d2-unknown.svg";
     body.classList.add("unknown");
-    description.innerHTML = `Be careful today in ${city}!`;
+    description.textContent = `Be careful today in ${city}!`;
   }
 };
 

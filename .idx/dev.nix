@@ -6,16 +6,16 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.sudo
-    pkgs.go
-    pkgs.python311
-    pkgs.python311Packages.pip
-    pkgs.nodejs_20
-    pkgs.nodePackages.nodemon
-    pkgs.python312Packages.pip
-    pkgs.busybox
-    pkgs.nox
-    pkgs.python39
+    #pkgs.sudo
+    #pkgs.go
+    #pkgs.python311
+    #pkgs.python311Packages.pip
+    #pkgs.nodejs_20
+    #pkgs.nodePackages.nodemon
+    #pkgs.python312Packages.pip
+    #pkgs.busybox
+    #pkgs.nox
+    #pkgs.python39
   ];
 
   # Sets environment variables in the workspace

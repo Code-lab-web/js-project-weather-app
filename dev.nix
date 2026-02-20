@@ -16,6 +16,6 @@ pkgs.mkShell {
     pkgs.xz
     pkgs.tcl
     pkgs.tk
-    pkgs.python314
+    pkgs.python3
   ];
 }

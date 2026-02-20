@@ -26,7 +26,7 @@ const pickTodaysDescription = (todaysDescription) => {
   if (todaysDescription === "Clouds") {
     icon.src = "./assets/d2-cloud.svg";
     body.classList.add("cloudy");
-    description.innerHTML = `Light a fire and get cosy. ${city} is looking grey today.`;
+    description.innerHTML = `Cloudy skies over ${city} today.`;
   } else if (todaysDescription === "Clear") {
     icon.src = "./assets/d2-sun.svg";
     body.classList.add("sunny");
@@ -39,7 +39,7 @@ const pickTodaysDescription = (todaysDescription) => {
   ) {
     icon.src = "./assets/d2-rain.svg";
     body.classList.add("rainy");
-    description.innerHTML = `Don't forget your umbrella. It's wet in ${city} today.`;
+    description.innerHTML = `Don\'t forget your umbrella. It\'s wet in ${city} today.`;
   } else {
     icon.src = "./assets/d2-unknown.svg";
     body.classList.add("unknown");
@@ -73,7 +73,7 @@ const fetchWeather = (city) => {
 
       if (json.cod === "404") {
         errorMessage.innerHTML =
-          "Can't find what you're looking for. Try another city, <br> or add the country as well: 'Stockholm, Sweden'!";
+          "Can\'t find what you\'re looking for. Try another city, <br> or add the country as well: \'Stockholm, Sweden\'!";
       } else {
         errorMessage.innerHTML = "";
         const todaysWeather = {
@@ -129,10 +129,9 @@ const fetchForecast = (city) => {
 
         //Emptying the forecast before populating it
         forecast.innerHTML = "";
-
+        dates = {};
         //Getting weather values
         Object.entries(dates).forEach((item, index) => {
-          dates = {};
           const date = item[0];
           const weatherValues = item[1];
           const temps = weatherValues.map((value) => value.main.temp);

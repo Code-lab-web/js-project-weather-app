@@ -1,4 +1,14 @@
-node_modules
-.env
 # Local Netlify folder
 .netlify
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+sessions.db
+
+# Node
+node_modules/

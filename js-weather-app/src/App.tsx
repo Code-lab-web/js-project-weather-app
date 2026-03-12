@@ -73,6 +73,10 @@ type HourlyPoint = {
   humidity: number
 }
 
+type MapOverlay = 'rain' | 'wind' | 'temp'
+type MapPalette = 'colorblind' | 'high-contrast' | 'grayscale'
+type ContrastTarget = 'AA' | 'AAA'
+
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>
@@ -187,9 +191,41 @@ const toMinutes = (dateLike: string): number => {
 
 const clamp = (value: number, min = 0, max = 1): number => Math.max(min, Math.min(max, value))
 
+const hexToRgb = (hex: string): [number, number, number] => {
+  const normalized = hex.replace('#', '')
+  const expanded =
+    normalized.length === 3
+      ? normalized
+          .split('')
+          .map((char) => `${char}${char}`)
+          .join('')
+      : normalized
+  const int = Number.parseInt(expanded, 16)
+  return [(int >> 16) & 255, (int >> 8) & 255, int & 255]
+}
+
+const relativeLuminance = (hex: string): number => {
+  const [r, g, b] = hexToRgb(hex).map((channel) => {
+    const sRGB = channel / 255
+    return sRGB <= 0.03928 ? sRGB / 12.92 : ((sRGB + 0.055) / 1.055) ** 2.4
+  })
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b
+}
+
+const contrastRatio = (hexA: string, hexB: string): number => {
+  const l1 = relativeLuminance(hexA)
+  const l2 = relativeLuminance(hexB)
+  const lighter = Math.max(l1, l2)
+  const darker = Math.min(l1, l2)
+  return (lighter + 0.05) / (darker + 0.05)
+}
+
 function App() {
   const [query, setQuery] = useState('')
   const [units, setUnits] = useState<UnitSystem>('metric')
+  const [mapOverlay, setMapOverlay] = useState<MapOverlay>('rain')
+  const [mapPalette, setMapPalette] = useState<MapPalette>('colorblind')
+  const [contrastTarget, setContrastTarget] = useState<ContrastTarget>('AA')
   const [bundle, setBundle] = useState<WeatherBundle | null>(null)
   const [suggestions, setSuggestions] = useState<GeoResult[]>([])
   const [recentCities, setRecentCities] = useState<string[]>([])
@@ -279,8 +315,54 @@ function App() {
   const radarUrl = useMemo(() => {
     if (!bundle) return ''
     const { latitude, longitude } = bundle.location
-    return `https://embed.windy.com/embed2.html?lat=${latitude}&lon=${longitude}&zoom=6&level=surface&overlay=rain&product=radar&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=${latitude}&detailLon=${longitude}&metricWind=default&metricTemp=default&radarRange=-1`
-  }, [bundle])
+    return `https://embed.windy.com/embed2.html?lat=${latitude}&lon=${longitude}&zoom=6&level=surface&overlay=${mapOverlay}&product=radar&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=${latitude}&detailLon=${longitude}&metricWind=default&metricTemp=default&radarRange=-1`
+  }, [bundle, mapOverlay])
+
+  const mapLegend = useMemo(() => {
+    if (mapPalette === 'high-contrast') {
+      return [
+        { color: '#005A9C', label: 'Low', meaning: 'Low intensity or weak signal' },
+        { color: '#107C10', label: 'Medium', meaning: 'Moderate intensity' },
+        { color: '#C239B3', label: 'High', meaning: 'High intensity' },
+        { color: '#8A1C1C', label: 'Extreme', meaning: 'Extreme intensity or severe areas' },
+      ]
+    }
+
+    if (mapPalette === 'grayscale') {
+      return [
+        { color: '#D9D9D9', label: 'Low', meaning: 'Low intensity or weak signal' },
+        { color: '#A6A6A6', label: 'Medium', meaning: 'Moderate intensity' },
+        { color: '#737373', label: 'High', meaning: 'High intensity' },
+        { color: '#262626', label: 'Extreme', meaning: 'Extreme intensity or severe areas' },
+      ]
+    }
+
+    return [
+      { color: '#0072B2', label: 'Low', meaning: 'Low intensity or weak signal' },
+      { color: '#56B4E9', label: 'Medium', meaning: 'Moderate intensity' },
+      { color: '#E69F00', label: 'High', meaning: 'High intensity' },
+      { color: '#D55E00', label: 'Extreme', meaning: 'Extreme intensity or severe areas' },
+    ]
+  }, [mapPalette])
+
+  const mapContrastResults = useMemo(() => {
+    const legendBackground = '#f7f9ff'
+    const threshold = contrastTarget === 'AAA' ? 7 : 4.5
+    return mapLegend.map((item) => {
+      const ratio = contrastRatio(item.color, legendBackground)
+      const passesTarget = ratio >= threshold
+      return {
+        ...item,
+        ratio,
+        passesTarget,
+      }
+    })
+  }, [contrastTarget, mapLegend])
+
+  const contrastPassCount = useMemo(
+    () => mapContrastResults.filter((result) => result.passesTarget).length,
+    [mapContrastResults],
+  )
 
   const upsertRecentCity = (name: string) => {
     setRecentCities((prev) => {
@@ -527,9 +609,134 @@ function App() {
             <p>UV max this week: {Math.max(...bundle.forecast.daily.uv_index_max).toFixed(1)}</p>
           </section>
 
-          <section className="card radar-card">
+          <section className={`card radar-card map-palette-${mapPalette}`}>
             <h3>Live Radar Layer</h3>
-            <iframe title="Radar" src={radarUrl} className="radar-frame" loading="lazy" />
+            <p className="map-help-text" id="mapHelpText">
+              Accessibility mode uses a colorblind-safe legend and text labels. Switch overlays to compare rain,
+              wind, and temperature patterns.
+            </p>
+
+            <div className="map-controls" aria-label="Map controls">
+              <fieldset>
+                <legend>Overlay</legend>
+                <label>
+                  <input
+                    type="radio"
+                    name="mapOverlay"
+                    checked={mapOverlay === 'rain'}
+                    onChange={() => setMapOverlay('rain')}
+                  />
+                  Rain
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="mapOverlay"
+                    checked={mapOverlay === 'wind'}
+                    onChange={() => setMapOverlay('wind')}
+                  />
+                  Wind
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="mapOverlay"
+                    checked={mapOverlay === 'temp'}
+                    onChange={() => setMapOverlay('temp')}
+                  />
+                  Temperature
+                </label>
+              </fieldset>
+
+              <fieldset>
+                <legend>Palette</legend>
+                <label>
+                  <input
+                    type="radio"
+                    name="mapPalette"
+                    checked={mapPalette === 'colorblind'}
+                    onChange={() => setMapPalette('colorblind')}
+                  />
+                  Colorblind safe
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="mapPalette"
+                    checked={mapPalette === 'high-contrast'}
+                    onChange={() => setMapPalette('high-contrast')}
+                  />
+                  High contrast
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="mapPalette"
+                    checked={mapPalette === 'grayscale'}
+                    onChange={() => setMapPalette('grayscale')}
+                  />
+                  Grayscale
+                </label>
+              </fieldset>
+            </div>
+
+            <ul className="map-legend" aria-label="Map intensity legend">
+              {mapLegend.map((item) => (
+                <li key={item.label + item.color}>
+                  <span className="swatch" style={{ backgroundColor: item.color }} aria-hidden="true" />
+                  <span className="legend-label">{item.label}:</span> {item.meaning}
+                </li>
+              ))}
+            </ul>
+
+            <div className="contrast-panel" role="status" aria-live="polite" aria-label="WCAG contrast checks">
+              <h4>WCAG 2.2 Contrast Check</h4>
+              <p>Checks compare each legend color against the legend tile background.</p>
+              <div className="contrast-target-row" role="group" aria-label="Contrast compliance target">
+                <span>Target:</span>
+                <label>
+                  <input
+                    type="radio"
+                    name="contrastTarget"
+                    checked={contrastTarget === 'AA'}
+                    onChange={() => setContrastTarget('AA')}
+                  />
+                  AA (4.5:1)
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="contrastTarget"
+                    checked={contrastTarget === 'AAA'}
+                    onChange={() => setContrastTarget('AAA')}
+                  />
+                  AAA (7:1)
+                </label>
+              </div>
+              <p className="contrast-summary">
+                Passed {contrastPassCount} of {mapContrastResults.length} at {contrastTarget}.
+              </p>
+              <ul>
+                {mapContrastResults.map((result) => (
+                  <li key={`contrast-${result.label}-${result.color}`}>
+                    <span className={`contrast-badge ${result.passesTarget ? 'pass' : 'fail'}`}>
+                      {result.passesTarget ? 'Pass' : 'Fail'}
+                    </span>
+                    <span>
+                      {result.label}: {result.ratio.toFixed(2)}:1
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <iframe
+              title={`Weather map for ${formatLocation(bundle.location)} showing ${mapOverlay} overlay`}
+              src={radarUrl}
+              className="radar-frame"
+              loading="lazy"
+              aria-describedby="mapHelpText"
+            />
           </section>
 
           <section className="card">

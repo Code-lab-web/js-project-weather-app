@@ -1,10 +1,10 @@
 ﻿:root {
-  --ink: #0f1126;
-  --ink-soft: #434760;
-  --panel: rgba(255, 255, 255, 0.8);
-  --panel-border: rgba(255, 255, 255, 0.65);
-  --accent: #0e7c86;
-  --accent-strong: #0a5f66;
+  --ink: #0f1f1a;
+  --ink-soft: #3d5a4b;
+  --panel: rgba(245, 255, 249, 0.84);
+  --panel-border: rgba(196, 227, 208, 0.9);
+  --accent: #1f7a34;
+  --accent-strong: #165b28;
   --warning: #b0352f;
   --shadow: 0 24px 40px rgba(14, 17, 39, 0.14);
 }
@@ -17,7 +17,7 @@
 }
 
 .hero {
-  color: var(--ink);
+  color: #f2f6ff;
 }
 
 .eyebrow {
@@ -25,7 +25,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: #a8b9e8;
 }
 
 .hero h1 {
@@ -36,8 +36,37 @@
 
 .subtitle {
   margin: 0;
-  color: var(--ink-soft);
+  color: #c2d0f3;
   max-width: 64ch;
+}
+
+.garden-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.garden-card {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(198, 237, 208, 0.35);
+  box-shadow: 0 12px 28px rgba(1, 8, 26, 0.4);
+  background: rgba(8, 21, 25, 0.75);
+}
+
+.garden-card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.garden-card figcaption {
+  padding: 0.55rem 0.7rem 0.65rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: #dcf8dd;
 }
 
 .control-panel,
@@ -90,8 +119,8 @@
 }
 
 .search-row button.secondary {
-  background: #e8eefc;
-  color: #20294f;
+  background: #e7f6ea;
+  color: #193a28;
 }
 
 .search-row .install-btn {
@@ -115,19 +144,19 @@
 }
 
 .chip {
-  background: #edf0f7;
-  color: #16203f;
+  background: #e9f5ec;
+  color: #17412b;
 }
 
 .chip.active {
-  background: #16203f;
+  background: #1b5e33;
   color: #fff;
 }
 
 .recent-chip {
   background: #fff;
-  border: 1px solid #dbe4f7;
-  color: #253258;
+  border: 1px solid #cae7d5;
+  color: #21422f;
 }
 
 .error-text {
@@ -365,6 +394,97 @@
   color: #8f1d14;
 }
 
+/* Health Warnings card */
+.health-all-clear {
+  color: #2a5c3a;
+  font-weight: 600;
+}
+
+.health-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.health-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid transparent;
+}
+
+.health-item--info {
+  background: #eaf8ff;
+  border-color: #a8d9f0;
+}
+
+.health-item--caution {
+  background: #fff8e8;
+  border-color: #f5c842;
+}
+
+.health-item--danger {
+  background: #fff0f0;
+  border-color: #f09090;
+}
+
+.health-icon {
+  font-size: 1.45rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.health-body {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.health-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid transparent;
+}
+
+.health-badge--info {
+  background: #cfeaf8;
+  border-color: #5ba8d4;
+  color: #0d4566;
+}
+
+.health-badge--caution {
+  background: #fde9a0;
+  border-color: #c99b12;
+  color: #5a400a;
+}
+
+.health-badge--danger {
+  background: #fdd;
+  border-color: #cc3333;
+  color: #7a1010;
+}
+
+.health-title {
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.health-advice {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #333;
+  line-height: 1.5;
+}
+
 .sun-track {
   position: relative;
   margin: 0.8rem 0;
@@ -453,9 +573,272 @@
   color: #2c3454;
 }
 
+/* Earthquake card */
+.quake-card {
+  grid-column: span 12;
+}
+
+.quake-subhead {
+  margin: 0 0 0.75rem;
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+}
+
+.quake-loading,
+.quake-none {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.quake-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.quake-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid transparent;
+}
+
+.quake-item--minor {
+  background: #f5f8ff;
+  border-color: #c5d5f5;
+}
+
+.quake-item--moderate {
+  background: #fff8ea;
+  border-color: #f5d060;
+}
+
+.quake-item--major {
+  background: #fff0f0;
+  border-color: #f09090;
+}
+
+.quake-mag {
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  flex-shrink: 0;
+  min-width: 3.8rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.quake-mag--minor {
+  background: #dde8ff;
+  color: #1a3680;
+}
+
+.quake-mag--moderate {
+  background: #fde9a0;
+  color: #6b4008;
+}
+
+.quake-mag--major {
+  background: #fdd;
+  color: #831111;
+}
+
+.quake-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.quake-place {
+  font-size: 0.93rem;
+  color: #111;
+}
+
+.quake-meta {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.quake-link {
+  font-size: 0.8rem;
+  color: #1667a8;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.quake-link:hover {
+  text-decoration: underline;
+}
+
+/* Nearest Fire Departments card */
+.fire-card {
+  grid-column: span 12;
+}
+.fire-loading, .fire-none {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.fire-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+.fire-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #e0e0e0;
+  background: #f8f9ff;
+}
+.fire-rank {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d14c2f;
+  min-width: 2.5rem;
+  text-align: center;
+}
+.fire-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.fire-name {
+  font-size: 0.95rem;
+  color: #111;
+}
+.fire-dist {
+  font-size: 0.8rem;
+  color: #444;
+}
+.fire-addr {
+  font-size: 0.8rem;
+  color: #1667a8;
+}
+.fire-phone {
+  font-size: 0.8rem;
+  color: #1667a8;
+  text-decoration: none;
+}
+.fire-phone:hover {
+  text-decoration: underline;
+}
+.fire-map-link {
+  font-size: 0.8rem;
+  color: #1667a8;
+  text-decoration: none;
+  width: fit-content;
+}
+.fire-map-link:hover {
+  text-decoration: underline;
+}
+/* Nearest Hospitals card */
+.hospital-card {
+  grid-column: span 12;
+}
+
+.hospital-loading,
+.hospital-none {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.hospital-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hospital-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  background: #f0fbf4;
+  border: 1px solid #b8dfc9;
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+}
+
+.hospital-rank {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1b5e33;
+  min-width: 1.8rem;
+  margin-top: 0.1rem;
+}
+
+.hospital-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.hospital-name {
+  font-size: 0.97rem;
+  color: #0f2d1c;
+}
+
+.hospital-dist {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #297a4e;
+}
+
+.hospital-addr {
+  font-size: 0.8rem;
+  color: #3d5a4b;
+}
+
+.hospital-emergency-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #fde8e8;
+  border: 1px solid #f08080;
+  color: #891c1c;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  width: fit-content;
+}
+
+.hospital-phone {
+  font-size: 0.85rem;
+  color: #1a6640;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hospital-phone:hover {
+  text-decoration: underline;
+}
+
+.hospital-map-link {
+  font-size: 0.82rem;
+  color: #1667a8;
+  text-decoration: none;
+}
+
+.hospital-map-link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 960px) {
   .now-card {
     flex-direction: column;
+  }
+
+  .garden-card img {
+    height: 160px;
   }
 
   .sun-card,

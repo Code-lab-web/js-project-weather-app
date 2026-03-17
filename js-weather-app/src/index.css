@@ -14,11 +14,11 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: #0d1228;
+  color: #eaf1ff;
   background:
-    radial-gradient(circle at 18% 14%, rgba(255, 237, 198, 0.7) 0%, rgba(255, 237, 198, 0) 32%),
-    radial-gradient(circle at 82% 12%, rgba(162, 222, 255, 0.7) 0%, rgba(162, 222, 255, 0) 38%),
-    linear-gradient(165deg, #d9f2ff 0%, #eff3ff 34%, #e6ffe5 100%);
+    radial-gradient(circle at 16% 10%, rgba(62, 163, 84, 0.3) 0%, rgba(62, 163, 84, 0) 38%),
+    radial-gradient(circle at 84% 8%, rgba(86, 209, 138, 0.22) 0%, rgba(86, 209, 138, 0) 40%),
+    linear-gradient(160deg, #07160f 0%, #0d2a1d 42%, #04120b 100%);
 }
 
 #root {

@@ -1231,14 +1231,48 @@ out center 8;`
           {bundle.climateForecast && bundle.climateForecast.length > 0 && (
             <section className="card" aria-label="30-day climate forecast">
               <h3>30-day Climate Forecast (OpenWeatherMap)</h3>
-              <div className="climate-grid">
-                {bundle.climateForecast.map((day, idx) => (
-                  <div key={day.date + idx} className="climate-item">
-                    <p>{day.date}</p>
-                    <p>{day.temp !== null ? `${day.temp}°C` : 'N/A'}</p>
-                    <p>{day.description}</p>
-                  </div>
-                ))}
+              <div style={{ overflowX: 'auto' }}>
+                <table className="climate-table" style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.95em' }}>
+                  <thead>
+                    <tr style={{ background: '#f7f9ff' }}>
+                      <th style={{ padding: '6px', border: '1px solid #ddd' }}>Day</th>
+                      <th style={{ padding: '6px', border: '1px solid #ddd' }}>Date</th>
+                      <th style={{ padding: '6px', border: '1px solid #ddd' }}>Avg Temp</th>
+                      <th style={{ padding: '6px', border: '1px solid #ddd' }}>Min Temp</th>
+                      <th style={{ padding: '6px', border: '1px solid #ddd' }}>Max Temp</th>
+                      <th style={{ padding: '6px', border: '1px solid #ddd' }}>Weather</th>
+                      <th style={{ padding: '6px', border: '1px solid #ddd' }}>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {bundle.climateForecast.map((day, idx) => {
+                      // OpenWeatherMap climate API: item.temp may have min/max/avg, item.weather[0].icon/description
+                      const dateObj = new Date(day.date);
+                      const dayOfWeek = dateObj.toLocaleDateString(undefined, { weekday: 'short' });
+                      // Support for min/max/avg temp if present
+                      const min = day.temp_min ?? day.temp?.min ?? day.temp?.min_temp ?? null;
+                      const max = day.temp_max ?? day.temp?.max ?? day.temp?.max_temp ?? null;
+                      const avg = day.temp?.average ?? day.temp?.day ?? day.temp ?? null;
+                      const icon = day.icon || (day.weather && day.weather[0] && day.weather[0].icon);
+                      const desc = day.description || (day.weather && day.weather[0] && day.weather[0].description) || '';
+                      return (
+                        <tr key={day.date + idx}>
+                          <td style={{ padding: '6px', border: '1px solid #ddd', textAlign: 'center' }}>{dayOfWeek}</td>
+                          <td style={{ padding: '6px', border: '1px solid #ddd', textAlign: 'center' }}>{day.date}</td>
+                          <td style={{ padding: '6px', border: '1px solid #ddd', textAlign: 'center' }}>{avg !== null ? `${Math.round(avg)}°C` : 'N/A'}</td>
+                          <td style={{ padding: '6px', border: '1px solid #ddd', textAlign: 'center' }}>{min !== null ? `${Math.round(min)}°C` : 'N/A'}</td>
+                          <td style={{ padding: '6px', border: '1px solid #ddd', textAlign: 'center' }}>{max !== null ? `${Math.round(max)}°C` : 'N/A'}</td>
+                          <td style={{ padding: '6px', border: '1px solid #ddd', textAlign: 'center' }}>
+                            {icon ? (
+                              <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt={desc} title={desc} style={{ verticalAlign: 'middle' }} />
+                            ) : null}
+                          </td>
+                          <td style={{ padding: '6px', border: '1px solid #ddd' }}>{desc}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
             </section>
           )}

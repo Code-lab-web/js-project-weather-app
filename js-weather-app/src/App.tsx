@@ -1,4 +1,10 @@
 ﻿import { useEffect, useMemo, useState } from 'react'
+// OpenWeatherMap 30-day climate forecast type
+type ClimateForecastDay = {
+  date: string;
+  temp: number;
+  description: string;
+};
 import type { FormEvent } from 'react'
 import './App.css'
 
@@ -74,6 +80,7 @@ type WeatherBundle = {
   location: GeoResult
   forecast: ForecastResponse
   air: AirQualityResponse
+  climateForecast?: ClimateForecastDay[]
 }
 
 type HourlyPoint = {
@@ -627,6 +634,7 @@ function App() {
     return data.results ?? []
   }
 
+
   const loadWeatherForPlace = async (place: GeoResult) => {
     setError(null)
     setLoading(true)
@@ -642,7 +650,15 @@ function App() {
         `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${place.latitude}&longitude=${place.longitude}` +
         '&current=us_aqi,pm2_5,pm10,ozone,carbon_monoxide,nitrogen_dioxide,sulphur_dioxide&timezone=auto'
 
-      const [forecastRes, airRes] = await Promise.all([fetch(forecastUrl), fetch(airUrl)])
+      // OpenWeatherMap 30-day climate forecast API
+      const owmApiKey = 'YOUR_OPENWEATHERMAP_API_KEY'; // TODO: Replace with your real API key
+      const owmClimateUrl = `https://pro.openweathermap.org/data/2.5/forecast/climate?lat=${place.latitude}&lon=${place.longitude}&appid=${owmApiKey}&units=metric`;
+
+      const [forecastRes, airRes, climateRes] = await Promise.all([
+        fetch(forecastUrl),
+        fetch(airUrl),
+        fetch(owmClimateUrl)
+      ])
 
       if (!forecastRes.ok) {
         throw new Error('Forecast data is unavailable for this location')
@@ -650,11 +666,23 @@ function App() {
       if (!airRes.ok) {
         throw new Error('Air quality data is unavailable right now')
       }
+      // climateRes may fail if no pro API key, so handle gracefully
+      let climateForecast: ClimateForecastDay[] = []
+      if (climateRes.ok) {
+        const climateJson = await climateRes.json()
+        if (climateJson && Array.isArray(climateJson.list)) {
+          climateForecast = climateJson.list.map((item: any) => ({
+            date: item.dt ? new Date(item.dt * 1000).toISOString().slice(0, 10) : '',
+            temp: item.temp?.day ?? null,
+            description: item.weather?.[0]?.description ?? ''
+          }))
+        }
+      }
 
       const forecast = (await forecastRes.json()) as ForecastResponse
       const air = (await airRes.json()) as AirQualityResponse
 
-      setBundle({ location: place, forecast, air })
+      setBundle({ location: place, forecast, air, climateForecast })
       setSuggestions([])
       upsertRecentCity(place.name)
       void fetchNearestHospitals(place.latitude, place.longitude)
@@ -1162,6 +1190,21 @@ out center 8;`
               ))}
             </div>
           </section>
+
+          {bundle.climateForecast && bundle.climateForecast.length > 0 && (
+            <section className="card">
+              <h3>30-day Climate Forecast (OpenWeatherMap)</h3>
+              <div className="climate-grid">
+                {bundle.climateForecast.map((day, idx) => (
+                  <div key={day.date + idx} className="climate-item">
+                    <p>{day.date}</p>
+                    <p>{day.temp !== null ? `${day.temp}°C` : 'N/A'}</p>
+                    <p>{day.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section className="card air-card">
             <h3>Air quality</h3>

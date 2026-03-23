@@ -872,10 +872,10 @@ out center 8;`
   }
 
   return (
-    <div className="app-shell">
-      <header className="hero">
+    <div className="app-shell" role="main" aria-label="Weather Application Main Content">
+      <header className="hero" role="banner">
         <p className="eyebrow">Hyperlocal Intelligence</p>
-        <h1>Nimbus One</h1>
+        <h1 tabIndex={0} style={{ outline: 'none' }}>Nimbus One</h1>
         <p className="subtitle">
           Real-time weather, air quality, UV, and 7-day planning in one privacy-safe dashboard.
         </p>
@@ -884,40 +884,43 @@ out center 8;`
       <section className="garden-gallery" aria-label="Garden theme pictures">
         {GARDEN_PHOTOS.map((photo) => (
           <figure key={photo.src} className="garden-card">
-            <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+            <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" style={{ borderRadius: '8px', border: '1px solid #ccc' }} />
             <figcaption>{photo.caption}</figcaption>
           </figure>
         ))}
       </section>
 
-      <section className="control-panel">
-        <form className="search-row" onSubmit={handleSubmit}>
+      <section className="control-panel" aria-label="Weather controls and search">
+        <form className="search-row" onSubmit={handleSubmit} aria-label="Search for a place">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search city, airport, or district"
             aria-label="Search location"
+            aria-required="true"
+            style={{ minWidth: '200px' }}
           />
-          <button type="submit" disabled={loading || locating}>
+          <button type="submit" disabled={loading || locating} aria-label="Search for weather">
             {loading ? 'Searching...' : 'Search'}
           </button>
-          <button type="button" className="secondary" onClick={useMyLocation} disabled={loading || locating}>
+          <button type="button" className="secondary" onClick={useMyLocation} disabled={loading || locating} aria-label="Use my current location">
             {locating ? 'Locating...' : 'Use my location'}
           </button>
           {deferredPrompt && (
-            <button type="button" className="install-btn" onClick={() => void installApp()}>
+            <button type="button" className="install-btn" onClick={() => void installApp()} aria-label="Install this app">
               Install App
             </button>
           )}
         </form>
 
-        <div className="toggle-row">
+        <div className="toggle-row" role="group" aria-label="Unit selection">
           <span>Units:</span>
           <button
             type="button"
             className={units === 'metric' ? 'chip active' : 'chip'}
             onClick={() => setUnits('metric')}
+            aria-pressed={units === 'metric'}
           >
             Metric
           </button>
@@ -925,13 +928,14 @@ out center 8;`
             type="button"
             className={units === 'imperial' ? 'chip active' : 'chip'}
             onClick={() => setUnits('imperial')}
+            aria-pressed={units === 'imperial'}
           >
             Imperial
           </button>
         </div>
 
         {recentCities.length > 0 && (
-          <div className="recent-row">
+          <div className="recent-row" aria-label="Recent city searches">
             <span>Recent:</span>
             {recentCities.map((city) => (
               <button
@@ -942,6 +946,7 @@ out center 8;`
                   setQuery(city)
                   void searchAndLoad(city)
                 }}
+                aria-label={`Search for ${city}`}
               >
                 {city}
               </button>
@@ -949,17 +954,17 @@ out center 8;`
           </div>
         )}
 
-        {error && <p className="error-text">{error}</p>}
+        {error && <p className="error-text" role="alert" tabIndex={-1} style={{ color: '#b80000', background: '#fff0f0', border: '1px solid #b80000', borderRadius: '4px', padding: '8px', maxWidth: '400px' }}>{error}</p>}
       </section>
 
       {bundle && (
-        <main className="dashboard">
-          <section className="card now-card">
+        <main className="dashboard" aria-label="Weather dashboard">
+          <section className="card now-card" aria-labelledby="current-weather-heading">
             <div className="now-left">
-              <h2>{formatLocation(bundle.location)}</h2>
+              <h2 id="current-weather-heading" tabIndex={0} style={{ outline: 'none' }}>{formatLocation(bundle.location)}</h2>
               <p className="condition">
-                <span>{weatherIcon(bundle.forecast.current.weather_code)}</span>
-                {weatherLabel(bundle.forecast.current.weather_code)}
+                <span aria-hidden="true">{weatherIcon(bundle.forecast.current.weather_code)}</span>
+                <span className="visually-hidden">{weatherLabel(bundle.forecast.current.weather_code)}</span>
               </p>
               <p className="big-temp">{formatTemp(bundle.forecast.current.temperature_2m, units)}</p>
               <p className="feels-like">
@@ -977,7 +982,7 @@ out center 8;`
             </div>
           </section>
 
-          <section className="card severe-card">
+          <section className="card severe-card" aria-label="Severe weather signals">
             <h3>Severe Weather Signals</h3>
             {severeSignals.length === 0 ? (
               <p>No high-risk signals detected in the current model window.</p>
@@ -1012,7 +1017,7 @@ out center 8;`
             )}
           </section>
 
-          <section className="card sun-card">
+          <section className="card sun-card" aria-label="Sun arc and UV trend">
             <h3>Sun Arc and UV Trend</h3>
             <div className="sun-track">
               <div className="sun-orbit" />
@@ -1027,7 +1032,7 @@ out center 8;`
             <p>UV max this week: {Math.max(...bundle.forecast.daily.uv_index_max).toFixed(1)}</p>
           </section>
 
-          <section className={`card radar-card map-palette-${mapPalette}`}>
+          <section className={`card radar-card map-palette-${mapPalette}`} aria-label="Live radar layer and controls">
             <h3>Live Radar Layer</h3>
             <p className="map-help-text" id="mapHelpText">
               Accessibility mode uses a colorblind-safe legend and text labels. Switch overlays to compare rain,
@@ -1157,7 +1162,7 @@ out center 8;`
             />
           </section>
 
-          <section className="card">
+          <section className="card" aria-label="Next 12 hours forecast">
             <h3>Next 12 hours</h3>
             <div className="hour-grid">
               {hourlyPreview.map((hour) => (
@@ -1172,7 +1177,7 @@ out center 8;`
             </div>
           </section>
 
-          <section className="card">
+          <section className="card" aria-label="7-day outlook">
             <h3>7-day outlook</h3>
             <div className="day-grid">
               {bundle.forecast.daily.time.map((day, index) => (
@@ -1192,7 +1197,7 @@ out center 8;`
           </section>
 
           {bundle.climateForecast && bundle.climateForecast.length > 0 && (
-            <section className="card">
+            <section className="card" aria-label="30-day climate forecast">
               <h3>30-day Climate Forecast (OpenWeatherMap)</h3>
               <div className="climate-grid">
                 {bundle.climateForecast.map((day, idx) => (
@@ -1206,7 +1211,7 @@ out center 8;`
             </section>
           )}
 
-          <section className="card air-card">
+          <section className="card air-card" aria-label="Air quality">
             <h3>Air quality</h3>
             <p className="aqi-score">
               US AQI {Math.round(bundle.air.current.us_aqi)} · {aqiCategory(bundle.air.current.us_aqi)}
@@ -1251,7 +1256,7 @@ out center 8;`
             )}
           </section>
 
-          <section className="card hospital-card">
+          <section className="card hospital-card" aria-label="Nearest hospitals">
             <h3>🏥 Nearest Hospitals</h3>
             {hospitalsLoading && <p className="hospital-loading">Searching nearby hospitals…</p>}
             {!hospitalsLoading && hospitals.length === 0 && (
@@ -1308,7 +1313,7 @@ out center 8;`
       )}
 
       {!bundle && !loading && !error && (
-        <section className="empty-state">
+        <section className="empty-state" aria-label="No data loaded">
           <p>Search a place to load your weather intelligence cockpit.</p>
         </section>
       )}

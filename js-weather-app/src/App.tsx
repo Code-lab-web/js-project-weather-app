@@ -515,24 +515,33 @@ function App() {
     ]
   }, [mapPalette])
 
+  const [legendBackground, setLegendBackground] = useState('#f7f9ff');
   const mapContrastResults = useMemo(() => {
-    const legendBackground = '#f7f9ff'
-    const threshold = contrastTarget === 'AAA' ? 7 : 4.5
+    const threshold = contrastTarget === 'AAA' ? 7 : 4.5;
     return mapLegend.map((item) => {
-      const ratio = contrastRatio(item.color, legendBackground)
-      const passesTarget = ratio >= threshold
+      const ratio = contrastRatio(item.color, legendBackground);
+      const passesAA = ratio >= 4.5;
+      const passesAAA = ratio >= 7;
+      const passesTarget = ratio >= threshold;
       return {
         ...item,
         ratio,
         passesTarget,
-      }
-    })
-  }, [contrastTarget, mapLegend])
+        passesAA,
+        passesAAA,
+      };
+    });
+  }, [contrastTarget, mapLegend, legendBackground]);
 
   const contrastPassCount = useMemo(
     () => mapContrastResults.filter((result) => result.passesTarget).length,
     [mapContrastResults],
-  )
+  );
+
+  const anyFailBoth = useMemo(
+    () => mapContrastResults.some((result) => !result.passesAA && !result.passesAAA),
+    [mapContrastResults],
+  );
 
   const healthWarnings = useMemo<HealthWarning[]>(() => {
     if (!bundle) return []
@@ -1112,9 +1121,21 @@ out center 8;`
               ))}
             </ul>
 
-            <div className="contrast-panel" role="status" aria-live="polite" aria-label="WCAG contrast checks">
+            <div className="contrast-panel" role="status" aria-live="polite" aria-label="WCAG contrast checks" style={{ border: anyFailBoth ? '2px solid #b80000' : undefined, background: anyFailBoth ? '#fff0f0' : undefined }}>
               <h4>WCAG 2.2 Contrast Check</h4>
               <p>Checks compare each legend color against the legend tile background.</p>
+              <div style={{ marginBottom: 8 }}>
+                <label htmlFor="legend-bg-input" style={{ fontWeight: 'bold' }}>Legend background color:</label>
+                <input
+                  id="legend-bg-input"
+                  type="color"
+                  value={legendBackground}
+                  onChange={e => setLegendBackground(e.target.value)}
+                  style={{ marginLeft: 8, verticalAlign: 'middle' }}
+                  aria-label="Legend background color"
+                />
+                <span style={{ marginLeft: 8 }}>{legendBackground}</span>
+              </div>
               <div className="contrast-target-row" role="group" aria-label="Contrast compliance target">
                 <span>Target:</span>
                 <label>
@@ -1139,15 +1160,26 @@ out center 8;`
               <p className="contrast-summary">
                 Passed {contrastPassCount} of {mapContrastResults.length} at {contrastTarget}.
               </p>
+              {anyFailBoth && (
+                <div style={{ color: '#b80000', fontWeight: 'bold', marginBottom: 8 }}>
+                  Warning: At least one legend color fails both AA and AAA contrast requirements!
+                </div>
+              )}
               <ul>
                 {mapContrastResults.map((result) => (
-                  <li key={`contrast-${result.label}-${result.color}`}>
-                    <span className={`contrast-badge ${result.passesTarget ? 'pass' : 'fail'}`}>
+                  <li key={`contrast-${result.label}-${result.color}`} style={{ display: 'flex', alignItems: 'center', marginBottom: 4 }}>
+                    <span className="swatch" style={{ backgroundColor: result.color, border: '1px solid #888', width: 20, height: 20, display: 'inline-block', marginRight: 8 }} aria-label={`Legend color ${result.color}`}></span>
+                    <span style={{ marginRight: 8 }}>{result.label}</span>
+                    <span style={{ marginRight: 8, fontFamily: 'monospace' }}>{result.color}</span>
+                    <span style={{ marginRight: 8 }}>vs</span>
+                    <span className="swatch" style={{ backgroundColor: legendBackground, border: '1px solid #888', width: 20, height: 20, display: 'inline-block', marginRight: 8 }} aria-label={`Background color ${legendBackground}`}></span>
+                    <span style={{ marginRight: 8, fontFamily: 'monospace' }}>{legendBackground}</span>
+                    <span style={{ marginRight: 8 }}>{result.ratio.toFixed(2)}:1</span>
+                    <span className={`contrast-badge ${result.passesTarget ? 'pass' : 'fail'}`} style={{ marginRight: 8 }}>
                       {result.passesTarget ? 'Pass' : 'Fail'}
                     </span>
-                    <span>
-                      {result.label}: {result.ratio.toFixed(2)}:1
-                    </span>
+                    <span style={{ color: result.passesAA ? '#107C10' : '#b80000', marginRight: 4 }}>AA</span>
+                    <span style={{ color: result.passesAAA ? '#107C10' : '#b80000' }}>AAA</span>
                   </li>
                 ))}
               </ul>

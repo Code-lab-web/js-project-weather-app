@@ -992,13 +992,13 @@ out center 8;`
           </section>
 
           <section className="card severe-card" aria-label="Severe weather signals">
-            <h3>Severe Weather Signals</h3>
+            <h3 id="severe-heading">Severe Weather Signals</h3>
             {severeSignals.length === 0 ? (
               <p>No high-risk signals detected in the current model window.</p>
             ) : (
-              <ul>
-                {severeSignals.map((signal) => (
-                  <li key={signal}>{signal}</li>
+              <ul aria-labelledby="severe-heading" aria-live="polite">
+                {severeSignals.map((signal, idx) => (
+                  <li key={idx} tabIndex={0}>{signal}</li>
                 ))}
               </ul>
             )}

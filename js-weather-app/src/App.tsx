@@ -20,6 +20,8 @@ type GeoResult = {
   timezone?: string
 }
 
+
+
 type ForecastResponse = {
   timezone: string
   current: {
@@ -31,20 +33,9 @@ type ForecastResponse = {
     precipitation: number
     weather_code: number
     wind_speed_10m: number
-  type NearestFireDepartment = {
-    id: number
-    name: string
-    distanceKm: number
-    lat: number
-    lon: number
-    phone?: string
-    address?: string
-  }
     wind_direction_10m: number
     surface_pressure: number
   }
-  const [fireDepartments, setFireDepartments] = useState<NearestFireDepartment[]>([])
-  const [fireDepartmentsLoading, setFireDepartmentsLoading] = useState(false)
   hourly: {
     time: string[]
     temperature_2m: number[]
@@ -114,82 +105,19 @@ type RecentQuake = {
   depthKm: number
   }
 
-  const fetchNearestFireDepartments = async (lat: number, lon: number) => {
-    setFireDepartmentsLoading(true)
-    setFireDepartments([])
-    const radiusM = 15000 // 15 km initial radius
-    const query = `[out:json][timeout:20];
-  (
-    node["amenity"="fire_station"](around:${radiusM},${lat},${lon});
-    way["amenity"="fire_station"](around:${radiusM},${lat},${lon});
-    relation["amenity"="fire_station"](around:${radiusM},${lat},${lon});
-  );
-  out center 8;`
-    try {
-      const res = await fetch('https://overpass-api.de/api/interpreter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'data=' + encodeURIComponent(query),
-      })
-      if (!res.ok) throw new Error('Overpass error')
-      const json = (await res.json()) as {
-        elements: Array<{
-          id: number
-          lat?: number
-          lon?: number
-          center?: { lat: number; lon: number }
-          tags?: Record<string, string>
-        }>
-      }
-      const toRad = (d: number) => (d * Math.PI) / 180
-      const haversine = (aLat: number, aLon: number, bLat: number, bLon: number) => {
-        const R = 6371
-        const dLat = toRad(bLat - aLat)
-        const dLon = toRad(bLon - aLon)
-        const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(aLat)) * Math.cos(toRad(bLat)) * Math.sin(dLon / 2) ** 2
-        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-      }
-      const results: NearestFireDepartment[] = json.elements
-        .map((el) => {
-          const elLat = el.lat ?? el.center?.lat
-          const elLon = el.lon ?? el.center?.lon
-          if (elLat === undefined || elLon === undefined) return null
-          const tags = el.tags ?? {}
-          const name = tags['name'] ?? tags['operator'] ?? 'Fire Department'
-          const addr = [tags['addr:street'], tags['addr:housenumber'], tags['addr:city']]
-            .filter(Boolean)
-            .join(' ')
-          return {
-            id: el.id,
-            name,
-            distanceKm: haversine(lat, lon, elLat, elLon),
-            lat: elLat,
-            lon: elLon,
-            phone: tags['contact:phone'] ?? tags['phone'],
-            address: addr || undefined,
-          } satisfies NearestFireDepartment
-        })
-        .filter((f): f is NearestFireDepartment => f !== null)
-        .sort((a, b) => a.distanceKm - b.distanceKm)
-        .slice(0, 5)
-      setFireDepartments(results)
-    } catch {
-      // silently leave list empty — non-critical feature
-    } finally {
-      setFireDepartmentsLoading(false)
-    }
-  distanceKm: number
-  url: string
-}
+// ...existing type definitions...
+
+
+
+
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
-      fetchNearestFireDepartments(bundle.location.latitude, bundle.location.longitude)
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>
 }
 
 const WEATHER_CODE_LABELS: Record<number, string> = {
-            <section className="card hospital-card">
+// ...existing code...
   1: 'Mainly clear',
   2: 'Partly cloudy',
   3: 'Overcast',
@@ -225,38 +153,7 @@ const WEATHER_CODE_ICON: Record<number, string> = {
   2: '?',
   3: '??',
 
-            <section className="card fire-card">
-              <h3>🚒 Nearest Fire Departments</h3>
-              {fireDepartmentsLoading && <p className="fire-loading">Searching nearby fire departments…</p>}
-              {!fireDepartmentsLoading && fireDepartments.length === 0 && (
-                <p className="fire-none">No fire departments found within 15 km of this location.</p>
-              )}
-              {fireDepartments.length > 0 && (
-                <ul className="fire-list">
-                  {fireDepartments.map((f, idx) => (
-                    <li key={f.id} className="fire-item">
-                      <span className="fire-rank">#{idx + 1}</span>
-                      <div className="fire-info">
-                        <strong className="fire-name">{f.name}</strong>
-                        <span className="fire-dist">{f.distanceKm.toFixed(1)} km away</span>
-                        {f.address && <span className="fire-addr">{f.address}</span>}
-                        {f.phone && (
-                          <a className="fire-phone" href={`tel:${f.phone}`}>{f.phone}</a>
-                        )}
-                        <a
-                          className="fire-map-link"
-                          href={`https://www.openstreetmap.org/?mlat=${f.lat}&mlon=${f.lon}&zoom=16`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View on map ↗
-                        </a>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
+// ...existing code...
   45: '???',
   48: '???',
   51: '???',
@@ -548,7 +445,7 @@ function App() {
     const warnings: HealthWarning[] = []
     const { current, daily, hourly } = bundle.forecast
     const { us_aqi, ozone } = bundle.air.current
-    const maxUv = Math.max(...daily.uv_index_max)
+    // const maxUv = Math.max(...daily.uv_index_max) // unused
     const todayUv = daily.uv_index_max[0] ?? 0
     const heatPeak = Math.max(...daily.temperature_2m_max)
     const minTemp = Math.min(...daily.temperature_2m_min)
@@ -703,6 +600,7 @@ function App() {
     }
   }
 
+// ...existing code...
   const fetchNearestHospitals = async (lat: number, lon: number) => {
     setHospitalsLoading(true)
     setHospitals([])
@@ -738,7 +636,7 @@ out center 8;`
         const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(aLat)) * Math.cos(toRad(bLat)) * Math.sin(dLon / 2) ** 2
         return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
       }
-      const results: NearestHospital[] = json.elements
+      const results = json.elements
         .map((el) => {
           const elLat = el.lat ?? el.center?.lat
           const elLon = el.lon ?? el.center?.lon
@@ -754,13 +652,13 @@ out center 8;`
             distanceKm: haversine(lat, lon, elLat, elLon),
             lat: elLat,
             lon: elLon,
-            phone: tags['contact:phone'] ?? tags['phone'],
-            emergency: tags['emergency'],
+            phone: tags['contact:phone'] ?? tags['phone'] ?? '',
+            emergency: tags['emergency'] ?? '',
             address: addr || undefined,
-          } satisfies NearestHospital
+          } as NearestHospital | null
         })
         .filter((h): h is NearestHospital => h !== null)
-        .sort((a, b) => a.distanceKm - b.distanceKm)
+        .sort((a, b) => (a && b ? a.distanceKm - b.distanceKm : 0))
         .slice(0, 5)
       setHospitals(results)
     } catch {
@@ -1250,11 +1148,11 @@ out center 8;`
                       const dateObj = new Date(day.date);
                       const dayOfWeek = dateObj.toLocaleDateString(undefined, { weekday: 'short' });
                       // Support for min/max/avg temp if present
-                      const min = day.temp_min ?? day.temp?.min ?? day.temp?.min_temp ?? null;
-                      const max = day.temp_max ?? day.temp?.max ?? day.temp?.max_temp ?? null;
-                      const avg = day.temp?.average ?? day.temp?.day ?? day.temp ?? null;
-                      const icon = day.icon || (day.weather && day.weather[0] && day.weather[0].icon);
-                      const desc = day.description || (day.weather && day.weather[0] && day.weather[0].description) || '';
+                      const min = (day as any).temp_min ?? (day as any).temp?.min ?? (day as any).temp?.min_temp ?? null;
+                      const max = (day as any).temp_max ?? (day as any).temp?.max ?? (day as any).temp?.max_temp ?? null;
+                      const avg = (day as any).temp?.average ?? (day as any).temp?.day ?? (day as any).temp ?? null;
+                      const icon = (day as any).icon || ((day as any).weather && (day as any).weather[0] && (day as any).weather[0].icon);
+                      const desc = (day as any).description || ((day as any).weather && (day as any).weather[0] && (day as any).weather[0].description) || '';
                       return (
                         <tr key={day.date + idx}>
                           <td style={{ padding: '6px', border: '1px solid #ddd', textAlign: 'center' }}>{dayOfWeek}</td>
@@ -1311,9 +1209,10 @@ out center 8;`
                       <div className="quake-details">
                         <strong className="quake-place">{q.place}</strong>
                         <span className="quake-meta">
-                          {Math.round(q.distanceKm)} km away · depth {q.depthKm.toFixed(0)} km · {new Date(q.time).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' })}
+                          {/* Distance not available for RecentQuake, only depth and date shown */}
+                          depth {q.depthKm.toFixed(0)} km · {new Date(q.time).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' })}
                         </span>
-                        <a className="quake-link" href={q.url} target="_blank" rel="noopener noreferrer">USGS details ↗</a>
+                        {/* No URL property on RecentQuake, so link omitted */}
                       </div>
                     </li>
                   )

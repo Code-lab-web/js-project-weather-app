@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  base = "js-project-weather-app/js-weather-app"
+
+[dev]
+  command = "npm run dev"
+  port = 5173
+  targetPort = 5173
+
+[[redirects]]
+  from = "/api/*"
+  to = "http://localhost:3000/api/:splat"
+  status = 200

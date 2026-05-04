@@ -1,7 +1,7 @@
+
 [build]
   command = "npm run build"
   publish = "dist"
-  base = "js-project-weather-app/js-weather-app"
 
 [dev]
   command = "npm run dev"

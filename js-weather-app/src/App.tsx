@@ -1,4 +1,5 @@
 ﻿import { useEffect, useMemo, useState } from 'react'
+import { useAlert } from './AlertContext'
 // OpenWeatherMap 30-day climate forecast type
 type ClimateForecastDay = {
   date: string;
@@ -284,6 +285,7 @@ const contrastRatio = (hexA: string, hexB: string): number => {
 }
 
 function App() {
+  const { showAlert } = useAlert();
   const [query, setQuery] = useState('')
   const [units, setUnits] = useState<UnitSystem>('metric')
   const [mapOverlay, setMapOverlay] = useState<MapOverlay>('rain')
@@ -777,6 +779,43 @@ out center 8;`
     await deferredPrompt.userChoice
     setDeferredPrompt(null)
   }
+
+
+  // Show a popup alert if a severe weather signal is detected
+  useEffect(() => {
+    if (severeSignals.length > 0) {
+      showAlert({
+        type: 'danger',
+        title: 'Severe Weather Alert',
+        message: severeSignals[0],
+      });
+    }
+  }, [severeSignals, showAlert]);
+
+  // Show a popup alert if a recent earthquake (M4.5+) is detected within 100 km
+  useEffect(() => {
+    if (quakes && quakes.length > 0) {
+      const nearbyQuake = quakes.find(q => q.magnitude >= 4.5 && q.distanceKm && q.distanceKm <= 100);
+      if (nearbyQuake) {
+        showAlert({
+          type: 'danger',
+          title: 'Nearby Earthquake Detected',
+          message: `Magnitude ${nearbyQuake.magnitude.toFixed(1)} earthquake near ${nearbyQuake.place} (${nearbyQuake.distanceKm.toFixed(1)} km away). Stay alert for aftershocks and follow local safety guidance.`
+        });
+      }
+    }
+  }, [quakes, showAlert]);
+
+  // Show a popup alert if no hospitals are found nearby (within 15 km)
+  useEffect(() => {
+    if (bundle && hospitals && !hospitalsLoading && hospitals.length === 0) {
+      showAlert({
+        type: 'warning',
+        title: 'No Hospitals Nearby',
+        message: 'No hospitals were found within 15 km of this location. In case of emergency, call local authorities.'
+      });
+    }
+  }, [bundle, hospitals, hospitalsLoading, showAlert]);
 
   return (
     <div className="app-shell" role="main" aria-label="Weather Application Main Content">

@@ -1,0 +1,45 @@
+.alert-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.alert-popup__content {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 2rem 2.5rem;
+  min-width: 320px;
+  max-width: 90vw;
+  text-align: center;
+  position: relative;
+}
+.alert-popup__title {
+  margin: 0 0 0.5em 0;
+  font-size: 1.3em;
+  color: #b0352f;
+}
+.alert-popup__message {
+  margin: 0 0 1.5em 0;
+  color: #222;
+}
+.alert-popup__close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #888;
+  cursor: pointer;
+}
+.alert-popup--info .alert-popup__title { color: #1f7a34; }
+.alert-popup--warning .alert-popup__title { color: #e6a700; }
+.alert-popup--danger .alert-popup__title { color: #b0352f; }
+.alert-popup--success .alert-popup__title { color: #107C10; }

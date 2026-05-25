@@ -819,6 +819,23 @@ out center 8;`
 
   return (
     <div className="app-shell" role="main" aria-label="Weather Application Main Content">
+      {/* Developer/Test: Simulate emergency alerts */}
+      {process.env.NODE_ENV !== 'production' && (
+        <div style={{ position: 'fixed', bottom: 16, right: 16, zIndex: 10001 }}>
+          <button
+            style={{ padding: '0.5em 1em', background: '#b0352f', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 600, cursor: 'pointer', marginRight: 8 }}
+            onClick={() => showAlert({ type: 'danger', title: 'Simulated Emergency', message: 'This is a test of the emergency alert system.' })}
+          >
+            Simulate Emergency Alert
+          </button>
+          <button
+            style={{ padding: '0.5em 1em', background: '#e6a700', color: '#222', border: 'none', borderRadius: 6, fontWeight: 600, cursor: 'pointer' }}
+            onClick={() => showAlert({ type: 'warning', title: 'Simulated Warning', message: 'This is a test of the warning alert system.' })}
+          >
+            Simulate Warning Alert
+          </button>
+        </div>
+      )}
       <header className="hero" role="banner">
         <p className="eyebrow">Hyperlocal Intelligence</p>
         <h1 tabIndex={0} style={{ outline: 'none' }}>Nimbus One</h1>
